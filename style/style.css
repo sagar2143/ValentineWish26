@@ -316,18 +316,7 @@ body {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M16 29s-13-8.35-13-17A7 7 0 0 1 16 5a7 7 0 0 1 13 7c0 8.65-13 17-13 17z" fill="%23ff4d6d"/></svg>') 16 29, auto;
 }
 /* Subtle Bengali motif overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/6/6e/Alpona_Bengali_Motif.svg');
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 180px 180px;
-  opacity: 0.13;
-}
+
 
 body::before {
   content: '';
