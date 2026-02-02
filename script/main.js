@@ -1,3 +1,133 @@
+// Language Switcher Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const langBtn = document.getElementById('langSwitch');
+  let isBengali = false;
+  const lines = {
+    en: {
+      mainHeading: 'My Dearest <span id="name">Manisha</span>',
+      valMsg: 'Happy Valentine’s Day, my love! <span aria-label="heart" role="img">💖</span>',
+      idea1: 'I thought a simple wish would do…',
+      idea2: 'But my heart wanted more.',
+      idea3: 'Because you deserve something <strong>truly special</strong>.',
+      idea4: 'Because…',
+      idea5: 'You are my everything! <span aria-label="love" role="img">💘</span>',
+      idea6: '<span>So…</span>',
+      wishHeading: 'Happy Valentine’s Day, Beautiful!'
+    },
+    bn: {
+      mainHeading: 'আমার প্রিয় <span id="name">Manisha</span>',
+      valMsg: 'শুভ ভালোবাসা দিবস, আমার ভালোবাসা! <span aria-label="heart" role="img">💖</span>',
+      idea1: 'একটা সাধারণ শুভেচ্ছা দিলেই হতো ভাবছিলাম…',
+      idea2: 'কিন্তু মন চাইল আরও কিছু।',
+      idea3: 'কারণ তুমি পাও <strong>সবচেয়ে স্পেশাল</strong> কিছু।',
+      idea4: 'কারণ…',
+      idea5: 'তুমি আমার সবকিছু! <span aria-label="love" role="img">💘</span>',
+      idea6: '<span>তাই…</span>',
+      wishHeading: 'শুভ ভালোবাসা দিবস, সুন্দরী!'
+    }
+  };
+  if (langBtn) {
+    langBtn.addEventListener('click', () => {
+      isBengali = !isBengali;
+      const lang = isBengali ? 'bn' : 'en';
+      langBtn.textContent = isBengali ? '🌐 English' : '🌐 বাংলা';
+      document.getElementById('mainHeading').innerHTML = lines[lang].mainHeading;
+      document.getElementById('valMsg').innerHTML = lines[lang].valMsg;
+      document.getElementById('idea1').innerHTML = lines[lang].idea1;
+      document.getElementById('idea2').innerHTML = lines[lang].idea2;
+      document.getElementById('idea3').innerHTML = lines[lang].idea3;
+      document.getElementById('idea4').innerHTML = lines[lang].idea4;
+      document.getElementById('idea5').innerHTML = lines[lang].idea5;
+      document.getElementById('idea6').innerHTML = lines[lang].idea6;
+      document.getElementById('wishHeading').innerHTML = lines[lang].wishHeading;
+    });
+  }
+});
+// Love Meter Animation
+document.addEventListener('DOMContentLoaded', function() {
+  const fill = document.getElementById('loveMeterFill');
+  const label = document.getElementById('loveMeterLabel');
+  if (fill && label) {
+    setTimeout(() => {
+      fill.style.width = '100%';
+      label.textContent = '100% Love!';
+    }, 800);
+  }
+});
+// Valentine's Day Countdown Logic
+function updateCountdown() {
+  const countdown = document.getElementById('valCountdown');
+  if (!countdown) return;
+  const now = new Date();
+  let year = now.getFullYear();
+  const valentine = new Date(year, 1, 14, 0, 0, 0); // Feb 14
+  if (now > valentine) valentine.setFullYear(year + 1);
+  const diff = valentine - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+  countdown.textContent = `Valentine's Day in ${days}d ${hours}h ${mins}m ${secs}s`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+// Love Note Popup Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const noteBtn = document.getElementById('noteBtn');
+  const noteModal = document.getElementById('noteModal');
+  const closeNote = document.querySelector('.close-note');
+  if (noteBtn && noteModal && closeNote) {
+    noteBtn.addEventListener('click', () => {
+      noteModal.style.display = 'flex';
+    });
+    closeNote.addEventListener('click', () => {
+      noteModal.style.display = 'none';
+    });
+    noteModal.addEventListener('click', (e) => {
+      if (e.target === noteModal) noteModal.style.display = 'none';
+    });
+  }
+});
+// Background Music Player Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const musicBtn = document.getElementById('musicToggle');
+  const bgMusic = document.getElementById('bgMusic');
+  let playing = false;
+  if (musicBtn && bgMusic) {
+    musicBtn.addEventListener('click', () => {
+      if (!playing) {
+        bgMusic.play();
+        musicBtn.textContent = '⏸️ Pause Music';
+        playing = true;
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = '🎵 Play Music';
+        playing = false;
+      }
+    });
+    bgMusic.addEventListener('ended', () => {
+      musicBtn.textContent = '🎵 Play Music';
+      playing = false;
+    });
+  }
+});
+// Virtual Hug Button Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const hugBtn = document.getElementById('hugBtn');
+  const hugModal = document.getElementById('hugModal');
+  const closeHug = document.querySelector('.close-hug');
+  if (hugBtn && hugModal && closeHug) {
+    hugBtn.addEventListener('click', () => {
+      hugModal.style.display = 'flex';
+    });
+    closeHug.addEventListener('click', () => {
+      hugModal.style.display = 'none';
+    });
+    hugModal.addEventListener('click', (e) => {
+      if (e.target === hugModal) hugModal.style.display = 'none';
+    });
+  }
+});
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually

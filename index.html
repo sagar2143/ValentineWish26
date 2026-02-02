@@ -11,10 +11,15 @@
   </head>
 
   <body>
+    <audio id="bgMusic" src="song1.mp3" loop preload="auto" style="display:none;"></audio>
+    <button id="langSwitch" class="lang-switch" style="position:fixed;top:18px;right:18px;z-index:10001;">🌐 বাংলা</button>
     <main class="container">
+      <section class="countdown-section" style="text-align:center; margin-bottom:18px;">
+        <div id="valCountdown" class="val-countdown" style="font-size:1.3rem; color:#ff4d6d; font-weight:700;"></div>
+      </section>
       <section class="hero">
         <div class="hero-content">
-          <h1 class="one">
+          <h1 class="one" id="mainHeading">
             My Dearest <span id="name">Manisha</span>
           </h1>
           <p class="two" id="greetingText">I love Bubu more btw!</p>
@@ -25,7 +30,7 @@
       </section>
       <section class="valentine-msg">
         <div class="three">
-          <p>Happy Valentine’s Day, my love! <span aria-label="heart" role="img">💖</span></p>
+          <p id="valMsg">Happy Valentine’s Day, my love! <span aria-label="heart" role="img">💖</span></p>
         </div>
         <div class="four">
           <div class="text-box">
@@ -37,19 +42,62 @@
         </div>
       </section>
       <section class="ideas">
-        <p class="idea-1">I thought a simple wish would do…</p>
-        <p class="idea-2" style="font-family: 'Noto Serif Bengali', serif; color: #ff4d6d;">কিন্তু মন বলল, ও একটু বেশি স্পেশাল।</p>
-        <p class="idea-3">And that's why you deserve something <strong>Truely Different</strong>.</p>
-        <p class="idea-4" style="font-family: 'Noto Serif Bengali', serif; color: #ff4d6d;">কারণ তুমি আমার কাছে সবচেয়ে প্রিয়।</p>
-        <p class="idea-5">You are my everything! <span aria-label="love" role="img">💘</span></p>
-        <p class="idea-6" style="font-family: 'Noto Serif Bengali', serif; color: #ff4d6d;"><span>তাই…</span></p>
+        <p class="idea-1" id="idea1">I thought a simple wish would do…</p>
+        <p class="idea-2" id="idea2">But my heart wanted more.</p>
+        <p class="idea-3" id="idea3">Because you deserve something <strong>truly special</strong>.</p>
+        <p class="idea-4" id="idea4">Because…</p>
+        <p class="idea-5" id="idea5">You are my everything! <span aria-label="love" role="img">💘</span></p>
+        <p class="idea-6" id="idea6"><span>So…</span></p>
       </section>
-      <section class="wish-section">
-        <div class="wish">
-          <h3 class="wish-hbd">Happy Valentine’s Day, Beautiful!</h3>
-          <h5 id="wishText">Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de malang ye teri wo hawayeinn hai</h5>
+      <section class="music-section" style="text-align:center; margin-bottom:18px;">
+        <button id="musicToggle" class="music-btn" aria-label="Play/Pause Music">🎵 Play Music</button>
+      </section>
+      <section class="note-section" style="text-align:center; margin-bottom:18px;">
+        <button id="noteBtn" class="note-btn" aria-label="Open Love Note">💌 Open Love Note</button>
+      </section>
+      <section class="gallery-section" style="text-align:center; margin-bottom:18px;">
+        <h3 style="color:#ff4d6d; font-size:1.3rem; margin-bottom:10px;">Our Memories</h3>
+        <div class="gallery-wrapper">
+          <img src="https://drive.google.com/file/d/1LK2BttViEoN2WlKokC9whAp3BGzda8F4?auto=format&fit=crop&w=300&q=80" alt="Memory 1" class="gallery-img" />
+          <img src="https://drive.google.com/file/d/1v1UYXi1ln2iLpypWaqBo15L0dA7pl8IE?auto=format&fit=crop&w=300&q=80" alt="Memory 2" class="gallery-img" />
+          <img src="https://drive.google.com/file/d/1ute2NLneLN3pjot26W8VFcJXWJWa93K_?auto=format&fit=crop&w=300&q=80" alt="Memory 3" class="gallery-img" />
+          <img src="https://drive.google.com/file/d/166H2wEdVF_n63xoizkoDG_D65hXhheq8?auto=format&fit=crop&w=300&q=80" alt="Memory 4" class="gallery-img" />
         </div>
       </section>
+      <section class="love-meter-section" style="text-align:center; margin-bottom:18px;">
+        <h3 style="color:#ff4d6d; font-size:1.2rem; margin-bottom:10px;">Love Meter</h3>
+        <div class="love-meter-wrapper">
+          <div class="love-meter-bar">
+            <div class="love-meter-fill" id="loveMeterFill"></div>
+          </div>
+          <div class="love-meter-label" id="loveMeterLabel">100% Love!</div>
+        </div>
+      </section>
+      <section class="wish-section">
+              <!-- Love Note Popup Modal -->
+              <div id="noteModal" class="note-modal" style="display:none;">
+                <div class="note-modal-content">
+                  <span class="close-note">&times;</span>
+                  <div class="note-emoji">💌</div>
+                  <h2>My Love Note for You</h2>
+                  <p>Every day with you feels like a beautiful dream come true. Thank you for being my Valentine, today and always!</p>
+                </div>
+              </div>
+        <div class="wish">
+          <h3 class="wish-hbd" id="wishHeading">Happy Valentine’s Day, Beautiful!</h3>
+          <h5 id="wishText">Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de malang ye teri wo hawayeinn hai</h5>
+          <button id="hugBtn" class="hug-btn">🤗 Send a Virtual Hug</button>
+        </div>
+      </section>
+      <!-- Hug Popup Modal -->
+      <div id="hugModal" class="hug-modal" style="display:none;">
+        <div class="hug-modal-content">
+          <span class="close-hug">&times;</span>
+          <div class="hug-emoji">🤗💖</div>
+          <h2>Here's a big virtual hug!</h2>
+          <p>May your day be filled with love, warmth, and endless smiles. Happy Valentine's Day!</p>
+        </div>
+      </div>
       <section class="baloons seven">
         <div class="baloons-wrapper">
           <img src="img/balloon.svg" alt="Balloon" />
@@ -77,7 +125,10 @@
           <p id="replay">Or click, if you want to watch it again.</p>
           <p class="last-smile">:)</p>
         </section>
+      <!-- Heart Confetti Canvas -->
+      <canvas id="heartConfetti" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;"></canvas>
     </main>
+    <script src="script/confetti.js"></script>
   </body>
 
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>

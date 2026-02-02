@@ -1,3 +1,234 @@
+/* Language Switcher Button */
+.lang-switch {
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(255,77,109,0.12);
+  cursor: pointer;
+  padding: 8px 18px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.lang-switch:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.22);
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+}
+/* Love Meter Styles */
+.love-meter-section {
+  margin-bottom: 18px;
+}
+.love-meter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.love-meter-bar {
+  width: 220px;
+  height: 24px;
+  background: #fff0f5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255,77,109,0.10);
+  overflow: hidden;
+  border: 2px solid #ffb6c1;
+}
+.love-meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+  border-radius: 12px;
+  transition: width 1.2s cubic-bezier(.4,2,.6,1);
+}
+.love-meter-label {
+  color: #ff4d6d;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+/* Gallery Styles */
+.gallery-section {
+  margin-bottom: 18px;
+}
+.gallery-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.gallery-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(255,77,109,0.12);
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 2px solid #ffb6c1;
+}
+.gallery-img:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.22);
+  border-color: #ff4d6d;
+}
+/* Countdown Styles */
+.val-countdown {
+  margin: 0 auto 8px auto;
+  padding: 8px 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #ffb6c1a0;
+}
+/* Love Note Button */
+.note-btn {
+  margin-top: 8px;
+  padding: 10px 28px;
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(255,77,109,0.12);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.note-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.22);
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+}
+
+/* Love Note Modal Styles */
+.note-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 182, 193, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.4s;
+}
+.note-modal-content {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 40px rgba(255,77,109,0.18);
+  text-align: center;
+  position: relative;
+  min-width: 320px;
+  max-width: 90vw;
+  animation: popIn 0.5s;
+}
+.note-emoji {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+.close-note {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  color: #ff4d6d;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.close-note:hover {
+  color: #ffb6c1;
+}
+/* Music Button */
+.music-btn {
+  margin-top: 8px;
+  padding: 10px 28px;
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(255,77,109,0.12);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.music-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.22);
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+}
+/* Virtual Hug Button */
+.hug-btn {
+  margin-top: 18px;
+  padding: 12px 32px;
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(255,77,109,0.18);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  outline: none;
+  position: relative;
+}
+.hug-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(255,77,109,0.28);
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+}
+
+/* Hug Modal Styles */
+.hug-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 182, 193, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.4s;
+}
+.hug-modal-content {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 40px rgba(255,77,109,0.18);
+  text-align: center;
+  position: relative;
+  min-width: 320px;
+  max-width: 90vw;
+  animation: popIn 0.5s;
+}
+.hug-emoji {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+.close-hug {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  color: #ff4d6d;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.close-hug:hover {
+  color: #ffb6c1;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -28,6 +259,7 @@ body {
   overflow: hidden;
   position: relative;
   font-family: 'Poppins', 'Noto Serif Bengali', serif, sans-serif;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M16 29s-13-8.35-13-17A7 7 0 0 1 16 5a7 7 0 0 1 13 7c0 8.65-13 17-13 17z" fill="%23ff4d6d"/></svg>') 16 29, auto;
 }
 /* Subtle Bengali motif overlay */
 body::after {
@@ -65,6 +297,23 @@ body::before {
   box-shadow: 0 24px 60px rgba(0,0,0,0.18);
   animation: floatIn 1.2s ease forwards;
   margin: 32px auto;
+  position: relative;
+  z-index: 2;
+}
+.container::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  border-radius: 36px;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: 0 0 32px 8px #ffb6c1, 0 0 64px 16px #ff4d6d;
+  opacity: 0.7;
+  animation: glowPulse 2.5s infinite alternate;
+}
+@keyframes glowPulse {
+  0% { opacity: 0.7; box-shadow: 0 0 32px 8px #ffb6c1, 0 0 64px 16px #ff4d6d; }
+  100% { opacity: 1; box-shadow: 0 0 48px 16px #ff4d6d, 0 0 80px 24px #ffb6c1; }
 }
 
 @keyframes floatIn {
