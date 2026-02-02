@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-// Language Switcher Logic
+// Language Switcher Logic (Robust)
 document.addEventListener('DOMContentLoaded', function() {
   const langBtn = document.getElementById('langSwitch');
   let isBengali = false;
@@ -51,20 +51,28 @@ document.addEventListener('DOMContentLoaded', function() {
       wishHeading: 'শুভ ভালোবাসা দিবস, সুন্দরী!'
     }
   };
+  function safeSet(id, html) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.innerHTML = html;
+    } else {
+      console.error('Language switcher: missing element with id', id);
+    }
+  }
   if (langBtn) {
     langBtn.addEventListener('click', () => {
       isBengali = !isBengali;
       const lang = isBengali ? 'bn' : 'en';
       langBtn.textContent = isBengali ? '🌐 English' : '🌐 বাংলা';
-      document.getElementById('mainHeading').innerHTML = lines[lang].mainHeading;
-      document.getElementById('valMsg').innerHTML = lines[lang].valMsg;
-      document.getElementById('idea1').innerHTML = lines[lang].idea1;
-      document.getElementById('idea2').innerHTML = lines[lang].idea2;
-      document.getElementById('idea3').innerHTML = lines[lang].idea3;
-      document.getElementById('idea4').innerHTML = lines[lang].idea4;
-      document.getElementById('idea5').innerHTML = lines[lang].idea5;
-      document.getElementById('idea6').innerHTML = lines[lang].idea6;
-      document.getElementById('wishHeading').innerHTML = lines[lang].wishHeading;
+      safeSet('mainHeading', lines[lang].mainHeading);
+      safeSet('valMsg', lines[lang].valMsg);
+      safeSet('idea1', lines[lang].idea1);
+      safeSet('idea2', lines[lang].idea2);
+      safeSet('idea3', lines[lang].idea3);
+      safeSet('idea4', lines[lang].idea4);
+      safeSet('idea5', lines[lang].idea5);
+      safeSet('idea6', lines[lang].idea6);
+      safeSet('wishHeading', lines[lang].wishHeading);
     });
   }
 });
