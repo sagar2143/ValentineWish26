@@ -1,4 +1,3 @@
-<h1 align="center">
     Valentine's Wish
 </h1>
 
@@ -26,3 +25,23 @@ Stay happy and keep the people you care about happy. :)
 
 #### OwnerShip
  The animations used in the Repository is created by Afiur Rahman Fahim(faahim).:smile:
+
+---
+## GitHub Pages Deployment Guide
+
+This project is fully compatible with GitHub Pages static hosting.
+
+### Steps to Deploy:
+1. **Fork or clone the repository.**
+2. **Customize your site:** Edit `customize.json` for your name, wish, and image.
+3. **Check file names:** All file and folder names are case-sensitive. For example, use `song1.mp3` (not `Song1.mp3`).
+4. **Enable GitHub Pages:** Go to your repo Settings > Pages, select the branch (usually `main`), and `/root` folder.
+5. **Access your site:** The URL will be `https://<your-username>.github.io/<repo-name>`.
+
+### Troubleshooting
+- **404 errors:** Ensure all file names match exactly (case-sensitive).
+- **Broken images or music:** Confirm the files exist in the correct folders and use lowercase names.
+- **No Babel required:** All scripts use plain JS for compatibility.
+- **Custom domain:** You can set a custom domain in GitHub Pages settings.
+
+---
