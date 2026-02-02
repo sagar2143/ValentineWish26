@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Background Music Player Logic
 document.addEventListener('DOMContentLoaded', function() {
   const musicBtn = document.getElementById('musicToggle');
-  const bgMusic = document.getElementById('bgMusic');
+  const bgMusic = document.getElementById('bgMusic'); // src is now Song1.mp3
   let playing = false;
   if (musicBtn && bgMusic) {
     musicBtn.addEventListener('click', () => {
