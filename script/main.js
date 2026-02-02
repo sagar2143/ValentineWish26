@@ -1,3 +1,28 @@
+// Surprise Me Button Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const surpriseBtn = document.getElementById('surpriseBtn');
+  const surpriseMsg = document.getElementById('surpriseMsg');
+  const messages = [
+    'You are the reason my heart beats a little faster. 💓',
+    'Every day with you is Valentine’s Day!',
+    'Sending you a thousand hugs and kisses! 😘',
+    'You light up my world like nobody else.',
+    'তুমি আমার জীবনের সবচেয়ে সুন্দর উপহার।',
+    'You are my sunshine on a cloudy day.',
+    'Love you to the moon and back! 🌙',
+    'তোমার হাসি আমার পৃথিবী বদলে দেয়।',
+    'You make every moment magical.',
+    'Forever and always, you have my heart.'
+  ];
+  if (surpriseBtn && surpriseMsg) {
+    surpriseBtn.addEventListener('click', () => {
+      const msg = messages[Math.floor(Math.random() * messages.length)];
+      surpriseMsg.textContent = msg;
+      surpriseMsg.style.color = '#ff4d6d';
+      surpriseMsg.style.fontSize = '1.15rem';
+    });
+  }
+});
 // Language Switcher Logic
 document.addEventListener('DOMContentLoaded', function() {
   const langBtn = document.getElementById('langSwitch');
@@ -5,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const lines = {
     en: {
       mainHeading: 'My Dearest <span id="name">Manisha</span>',
-      valMsg: 'Happy Valentine’s Day, my love! <span aria-label="heart" role="img">💖</span>',
+      valMsg: 'Happy Valentine’s Day, My Love! <span aria-label="heart" role="img">💖</span>',
       idea1: 'I thought a simple wish would do…',
-      idea2: 'But my heart wanted more.',
-      idea3: 'Because you deserve something <strong>truly special</strong>.',
-      idea4: 'Because…',
+      idea2: 'But my heart wanted more...',
+      idea3: 'Because you deserve something <strong>Truly Special</strong>.',
+      idea4: 'since...',
       idea5: 'You are my everything! <span aria-label="love" role="img">💘</span>',
       idea6: '<span>So…</span>',
       wishHeading: 'Happy Valentine’s Day, Beautiful!'
@@ -18,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
       mainHeading: 'আমার প্রিয় <span id="name">Manisha</span>',
       valMsg: 'শুভ ভালোবাসা দিবস, আমার ভালোবাসা! <span aria-label="heart" role="img">💖</span>',
       idea1: 'একটা সাধারণ শুভেচ্ছা দিলেই হতো ভাবছিলাম…',
-      idea2: 'কিন্তু মন চাইল আরও কিছু।',
-      idea3: 'কারণ তুমি পাও <strong>সবচেয়ে স্পেশাল</strong> কিছু।',
-      idea4: 'কারণ…',
+      idea2: 'কিন্তু মন বলল, ও একটু বেশি স্পেশাল।',
+      idea3: 'কারণ তুমি আমার <strong>সবচেয়ে প্রিয়</strong> কিছু।',
+      idea4: 'আর...',
       idea5: 'তুমি আমার সবকিছু! <span aria-label="love" role="img">💘</span>',
       idea6: '<span>তাই…</span>',
       wishHeading: 'শুভ ভালোবাসা দিবস, সুন্দরী!'
