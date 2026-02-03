@@ -106,6 +106,11 @@ const animationTimeline = () => {
   if (replyBtn) {
     replyBtn.addEventListener("click", () => {
       tl.restart();
+      const music = document.getElementById("bgMusic");
+      if (music) {
+        music.currentTime = 0;
+        music.play();
+      }
     });
   }
 };
@@ -163,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const startAll = () => {
+    music.currentTime = 0;
     const playPromise = music.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
@@ -182,6 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       music.pause();
     }
+    setLabel();
+  });
+
+  music.addEventListener("ended", () => {
+    music.pause();
+    music.currentTime = 0;
     setLabel();
   });
 

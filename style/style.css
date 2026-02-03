@@ -284,6 +284,9 @@ body {
   margin: 12px 0 0;
   color: #ff4d6d;
   font-family: 'Pacifico', cursive;
+  padding: 0 16px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .wish h5 {
@@ -374,6 +377,8 @@ body {
 
   .wish-hbd {
     font-size: 2rem;
+    padding: 0 12px;
+    line-height: 1.25;
   }
 
   .wish h5 {
