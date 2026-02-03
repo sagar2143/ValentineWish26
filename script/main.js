@@ -68,7 +68,7 @@ const translations = {
     startSubtitle: "শুধু তোমার জন্য তৈরি করা এক মুহূর্ত, কারণ তুমি আমার কাছে সবকিছু।",
     startLangLabel: "অনুগ্রহ করে যে ভাষায় এগোতে চান, সেটি নির্বাচন করুন।",
     startBtn: "শুরু",
-    endingCard: "সবসময় তোমার ❤",
+    endingCard: "আমি সবসময় তোমার ❤",
     musicPlay: "সঙ্গীত চালু",
     musicPause: "সঙ্গীত বন্ধ",
     countdownPrefix: "ভ্যালেন্টাইন ডে হতে বাকি",
