@@ -536,6 +536,8 @@ body::before {
   font-size: 3.4rem;
   font-weight: 400;
   font-family: 'Great Vibes', cursive;
+  line-height: 1.2;
+  margin: 0.6rem 0;
 }
 
 #replay {
@@ -551,6 +553,8 @@ body::before {
 
 .nine {
   z-index: 5;
+  top: 12vh;
+  padding: 0 8vw 6vh;
 }
 
 @keyframes replayGlow {
@@ -631,6 +635,16 @@ body::before {
     grid-auto-rows: 220px;
     gap: 14px;
   }
+
+  .nine p {
+    font-size: 2.6rem;
+    line-height: 1.15;
+  }
+
+  .nine {
+    top: 10vh;
+    padding: 0 7vw 5vh;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -639,6 +653,16 @@ body::before {
     grid-auto-rows: 180px;
     max-width: 360px;
     gap: 10px;
+  }
+
+  .nine p {
+    font-size: 2.1rem;
+    line-height: 1.12;
+  }
+
+  .nine {
+    top: 9vh;
+    padding: 0 6vw 4vh;
   }
 }
 
