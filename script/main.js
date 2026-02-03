@@ -1,27 +1,9 @@
-﻿// Animation Timeline (reference-style)
+﻿// Animation Timeline (English)
 let activeTimeline = null;
-let currentLang = "en";
-
-const splitForAnimation = (text, lang) => {
-  if (!text) return "";
-  let parts = [];
-  if (typeof Intl !== "undefined" && Intl.Segmenter) {
-    const segmenter = new Intl.Segmenter(lang, { granularity: "grapheme" });
-    parts = Array.from(segmenter.segment(text), (s) => s.segment);
-  } else {
-    parts = Array.from(text);
-  }
-  return parts.map((ch) => (ch === " " ? " " : `<span>${ch}</span>`)).join("");
-};
-
-const resetTextSplits = () => {
-  const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
-  const hbd = document.getElementsByClassName("wish-hbd")[0];
-  if (textBoxChars) textBoxChars.textContent = textBoxChars.textContent;
-  if (hbd) hbd.textContent = hbd.textContent;
-};
+const currentLang = (document.body && document.body.dataset && document.body.dataset.lang) ? document.body.dataset.lang : "en";
 
 const resetVisibility = () => {
+  if (typeof TweenMax === "undefined") return;
   TweenMax.set(
     [
       ".one",
@@ -50,26 +32,30 @@ const resetVisibility = () => {
   TweenMax.set(".six", { opacity: 1, y: 0, zIndex: 1 });
   TweenMax.set(".four", { opacity: 1, scale: 1, y: 0 });
 };
+
 const animationTimeline = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
   if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") return;
 
-  // Kill previous timeline (language switch restarts)
   if (activeTimeline) {
     activeTimeline.kill();
     activeTimeline = null;
   }
 
-  // Reset inline styles from prior animation
   resetVisibility();
 
   const textBoxText = textBoxChars.textContent;
   const hbdText = hbd.textContent;
 
-  textBoxChars.innerHTML = splitForAnimation(textBoxText, currentLang);
-  hbd.innerHTML = splitForAnimation(hbdText, currentLang);
+  textBoxChars.innerHTML = `<span>${Array.from(textBoxText)
+    .map((ch) => (ch === " " ? " " : `<span>${ch}</span>`))
+    .join("")}</span>`;
+
+  hbd.innerHTML = `<span>${Array.from(hbdText)
+    .map((ch) => (ch === " " ? " " : `<span>${ch}</span>`))
+    .join("")}</span>`;
 
   const ideaTextTrans = { opacity: 0, y: -20, rotationX: 5, skewX: "15deg" };
   const ideaTextTransLeave = { opacity: 0, y: 20, rotationY: 5, skewX: "-15deg" };
@@ -128,24 +114,14 @@ const bengaliTimeline = () => {
     activeTimeline.kill();
     activeTimeline = null;
   }
-
-  resetTextSplits();
   resetVisibility();
 
   const tl = new TimelineMax();
   activeTimeline = tl;
 
   tl.to(".container", 0.1, { visibility: "visible" })
-    .set(
-      [".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"],
-      { opacity: 0, y: 10 }
-    )
-    .staggerTo(
-      [".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"],
-      0.7,
-      { opacity: 1, y: 0 },
-      0.5
-    );
+    .set([".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"], { opacity: 0, y: 10 })
+    .staggerTo([".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"], 0.7, { opacity: 1, y: 0 }, 0.5);
 };
 
 // Custom data
@@ -166,68 +142,13 @@ const fetchData = () => {
     });
 };
 
-// Language Switcher
+// Language Switcher (swap page)
 const setupLanguage = () => {
   const langBtn = document.getElementById("langSwitch");
   if (!langBtn) return;
-
-  let isBengali = false;
-  const lines = {
-    en: {
-      mainHeading: 'My Dearest <span id="name">Manisha</span>',
-      valMsg: 'Happy Valentine\'s Day, my love!',
-      idea1: 'I thought a simple wish would do...',
-      idea2: 'But my heart wanted more.',
-      idea3: 'Since you deserve something <strong>truly special</strong>.',
-      idea4: 'Because...',
-      idea5: 'You are my everything! <span>:)</span>',
-      idea6: '<span>S</span><span>O</span>',
-      wishHeading: 'Happy  Valentine\'s  Day,  Beautiful!',
-    },
-    bn: {
-      mainHeading: 'আমার প্রিয় <span id="name">Manisha</span>',
-      valMsg: 'শুভ ভালোবাসা দিবস, আমার ভালোবাসা!',
-      idea1: 'একটা সাধারণ শুভেচ্ছা দিলেই হয়তো ভাবছিলাম...',
-      idea2: 'কিন্তু মন বলল, সে আলাদা।',
-      idea3: 'কারণ তুমি আমার কাছে <strong>সবচেয়ে প্রিয়</strong>  একজন।',
-      idea4: 'আর...',
-      idea5: 'তুমি আমার সবকিছু! <span>:)</span>',
-      idea6: '<span>তা</span><span>ই</span>',
-      wishHeading: 'শুভ ভালোবাসা দিবস, সুন্দরী!',
-    }
-  };
-
-  const safeSet = (id, html) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
-  };
-  const setSendText = (lang) => {
-    const btn = document.querySelector(".fake-btn");
-    if (!btn) return;
-    btn.textContent = lang === "bn" ? "পাঠান" : "Send";
-  };
-
   langBtn.addEventListener("click", () => {
-    isBengali = !isBengali;
-    const lang = isBengali ? "bn" : "en";
-    currentLang = lang;
-    langBtn.textContent = isBengali ? "🌐 English" : "🌐 বাংলা";
-    safeSet("mainHeading", lines[lang].mainHeading);
-    safeSet("valMsg", lines[lang].valMsg);
-    safeSet("idea1", lines[lang].idea1);
-    safeSet("idea2", lines[lang].idea2);
-    safeSet("idea3", lines[lang].idea3);
-    safeSet("idea4", lines[lang].idea4);
-    safeSet("idea5", lines[lang].idea5);
-    safeSet("idea6", lines[lang].idea6);
-    safeSet("wishHeading", lines[lang].wishHeading);
-    setSendText(lang);
-
-    if (lang === "bn") {
-      bengaliTimeline();
-    } else {
-      animationTimeline();
-    }
+    const target = currentLang === "bn" ? "index.html" : "bn.html";
+    window.location.href = target;
   });
 };
 
@@ -248,7 +169,11 @@ const updateCountdown = () => {
 };
 
 fetchData().then(() => {
-  animationTimeline();
+  if (currentLang === "bn") {
+    bengaliTimeline();
+  } else {
+    animationTimeline();
+  }
 });
 setupLanguage();
 updateCountdown();
@@ -264,12 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.textContent = music.paused ? "Play Music" : "Pause Music";
   };
 
-  // Try autoplay on load (may be blocked by browser)
   const tryPlay = () => {
     const playPromise = music.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
-        // Autoplay blocked; user must click
         setLabel();
       });
     }
