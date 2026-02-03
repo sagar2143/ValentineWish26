@@ -24,6 +24,51 @@ body {
   overflow: hidden;
 }
 
+.start-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 182, 193, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.start-card {
+  background: rgba(255,255,255,0.9);
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 18px;
+  padding: 24px 28px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(255,77,109,0.2);
+  min-width: 260px;
+}
+
+.start-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #ff4d6d;
+  margin-bottom: 6px;
+}
+
+.start-subtitle {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.start-btn {
+  background: linear-gradient(90deg, #ff4d6d, #ff8fb3);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255,77,109,0.25);
+}
+
 .music-toggle {
   position: fixed;
   bottom: 16px;

@@ -145,29 +145,36 @@ const updateCountdown = () => {
 };
 
 fetchData().then(() => {
-  animationTimeline();
+  // Start is triggered by user tap (overlay)
 });
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Music autoplay + toggle
+// Music + Start overlay
 document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bgMusic");
   const toggle = document.getElementById("musicToggle");
-  if (!music || !toggle) return;
+  const overlay = document.getElementById("startOverlay");
+  const startBtn = document.getElementById("startBtn");
+  if (!music || !toggle || !overlay || !startBtn) return;
 
   const setLabel = () => {
     toggle.textContent = music.paused ? "Play Music" : "Pause Music";
   };
 
-  const tryPlay = () => {
+  const startAll = () => {
     const playPromise = music.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
         setLabel();
       });
     }
+    overlay.style.display = "none";
+    animationTimeline();
+    setLabel();
   };
+
+  startBtn.addEventListener("click", startAll);
 
   toggle.addEventListener("click", () => {
     if (music.paused) {
@@ -179,5 +186,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   setLabel();
-  tryPlay();
 });
