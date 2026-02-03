@@ -195,11 +195,11 @@ body {
 
 .memories {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
-  grid-auto-rows: 320px;
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  grid-auto-rows: 300px;
+  gap: 20px;
   justify-content: center;
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
@@ -394,17 +394,18 @@ body {
   }
 
   .memories {
-    grid-template-columns: repeat(2, minmax(140px, 1fr));
-    grid-auto-rows: 180px;
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-auto-rows: 220px;
+    gap: 14px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .memories {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 220px;
-    max-width: 320px;
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+    grid-auto-rows: 180px;
+    max-width: 360px;
+    gap: 10px;
   }
 }
 
