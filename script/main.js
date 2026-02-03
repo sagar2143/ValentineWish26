@@ -4,15 +4,14 @@ let currentLang = "en";
 
 const splitForAnimation = (text, lang) => {
   if (!text) return "";
-  if (lang === "bn") {
-    // Split by words to avoid breaking Bengali grapheme clusters
-    return text
-      .split(" ")
-      .map((word) => (word ? `<span>${word}</span>` : ""))
-      .join(" ");
+  let parts = [];
+  if (typeof Intl !== "undefined" && Intl.Segmenter) {
+    const segmenter = new Intl.Segmenter(lang, { granularity: "grapheme" });
+    parts = Array.from(segmenter.segment(text), (s) => s.segment);
+  } else {
+    parts = Array.from(text);
   }
-  // Default: split by characters
-  return text.split("").map((ch) => `<span>${ch}</span>`).join("");
+  return parts.map((ch) => (ch === " " ? " " : `<span>${ch}</span>`)).join("");
 };
 const animationTimeline = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
@@ -164,6 +163,11 @@ const setupLanguage = () => {
     const el = document.getElementById(id);
     if (el) el.innerHTML = html;
   };
+  const setSendText = (lang) => {
+    const btn = document.querySelector(".fake-btn");
+    if (!btn) return;
+    btn.textContent = lang === "bn" ? "পাঠান" : "Send";
+  };
 
   langBtn.addEventListener("click", () => {
     isBengali = !isBengali;
@@ -179,6 +183,7 @@ const setupLanguage = () => {
     safeSet("idea5", lines[lang].idea5);
     safeSet("idea6", lines[lang].idea6);
     safeSet("wishHeading", lines[lang].wishHeading);
+    setSendText(lang);
 
     animationTimeline();
   });
@@ -206,3 +211,37 @@ fetchData().then(() => {
 setupLanguage();
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Music autoplay + toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
+  if (!music || !toggle) return;
+
+  const setLabel = () => {
+    toggle.textContent = music.paused ? "Play Music" : "Pause Music";
+  };
+
+  // Try autoplay on load (may be blocked by browser)
+  const tryPlay = () => {
+    const playPromise = music.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        // Autoplay blocked; user must click
+        setLabel();
+      });
+    }
+  };
+
+  toggle.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+    setLabel();
+  });
+
+  setLabel();
+  tryPlay();
+});
