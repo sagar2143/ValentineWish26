@@ -41,6 +41,7 @@ const collectBaseText = () => {
     musicPause: "Pause Music",
     countdownPrefix: "Valentine's Day in",
   };
+};
 
 const translations = {
   bn: {

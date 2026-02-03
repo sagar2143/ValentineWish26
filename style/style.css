@@ -59,6 +59,7 @@ body::before {
   justify-content: center;
   background: rgba(255, 182, 193, 0.55);
   backdrop-filter: blur(6px);
+  pointer-events: auto;
 }
 
 .start-card {
@@ -70,6 +71,8 @@ body::before {
   box-shadow: 0 16px 40px rgba(255,77,109,0.2);
   min-width: 260px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: auto;
+  position: relative;
 }
 
 .start-card.is-active {
@@ -100,6 +103,9 @@ body::before {
   border-radius: 999px;
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .lang-option.is-active {
@@ -132,6 +138,7 @@ body::before {
   filter: blur(10px);
   z-index: -1;
   opacity: 0.7;
+  pointer-events: none;
 }
 
 .start-subtitle {
@@ -152,6 +159,7 @@ body::before {
   animation: startPulse 2s ease-in-out infinite;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 @keyframes startPulse {
   0%, 100% { transform: scale(1); }
@@ -168,6 +176,7 @@ body::before {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
   opacity: 0;
   transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .start-btn:hover::after {
