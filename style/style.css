@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
 
 html {
   box-sizing: border-box;
@@ -290,7 +291,7 @@ body {
 }
 
 .lyrics {
-  font-family: 'Bonheur Royale', cursive;
+  font-family: 'Ephesis', cursive;
   font-style: italic;
   letter-spacing: 0.2px;
 }
