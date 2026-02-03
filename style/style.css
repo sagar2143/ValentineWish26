@@ -274,7 +274,8 @@ body {
   display: inline-block;
   max-width: 45%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 32% 68% 40% 60% / 48% 40% 60% 52%;
+  clip-path: polygon(62% 5%, 85% 12%, 96% 30%, 95% 55%, 86% 78%, 63% 94%, 38% 95%, 16% 82%, 5% 60%, 6% 34%, 17% 14%, 39% 6%);
   border: 4px solid #fff;
   box-shadow: 0 6px 18px rgba(255,77,109,0.2);
 }
