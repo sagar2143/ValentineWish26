@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -14,8 +15,28 @@ html {
 body {
   margin: 0;
   font-family: 'Poppins', 'Noto Serif Bengali', sans-serif;
-  background: linear-gradient(135deg, #ffb6c1 0%, #ff9a9e 40%, #fad0c4 100%);
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(255,182,193,0.45), transparent 60%),
+    linear-gradient(135deg, #ffb6c1 0%, #ff8fb3 35%, #ff6f91 70%, #ffd1dc 100%);
   overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0 8px, transparent 10px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.18) 0 6px, transparent 8px);
+  animation: sparkle 18s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes sparkle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-40px); }
 }
 
 
@@ -43,7 +64,7 @@ body {
 
 .container {
   height: 100vh;
-  width: min(96vw, 900px);
+  width: min(96vw, 980px);
   margin: 0 auto;
   text-align: center;
   visibility: hidden;
@@ -88,9 +109,10 @@ body {
 }
 
 .one {
-  font-size: 3.6rem;
-  font-family: 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
+  font-size: 3.8rem;
+  font-family: 'Fraunces', 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
   color: #ff4d6d;
+  text-shadow: 0 6px 24px rgba(255,77,109,0.25);
 }
 
 .one span {
@@ -105,19 +127,21 @@ body {
 }
 
 .three {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   color: #ff4d6d;
   font-weight: 700;
+  text-shadow: 0 4px 18px rgba(255,77,109,0.2);
 }
 
 .four .text-box {
   width: min(90vw, 600px);
   margin: 0 auto;
-  border: 2px solid #ffb6c1;
-  border-radius: 16px;
-  padding: 16px 18px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 18px;
+  padding: 18px 20px;
   position: relative;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 16px 40px rgba(255,77,109,0.2);
 }
 
 .gallery {
@@ -127,24 +151,34 @@ body {
   top: 22vh;
 }
 .gallery-title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: #ff4d6d;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Fraunces', 'Pacifico', cursive;
   margin: 0 0 14px;
+  text-shadow: 0 4px 18px rgba(255,77,109,0.2);
 }
 .memories {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 18px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .memories img {
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 14px;
-  border: 2px solid #fff;
-  box-shadow: 0 6px 18px rgba(255,77,109,0.18);
+  border-radius: 18px;
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 12px 28px rgba(255,77,109,0.22);
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.memories img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(255,77,109,0.3);
 }
 
 .text-box p {
@@ -162,10 +196,11 @@ body {
   right: 8px;
   bottom: 8px;
   color: #fff;
-  background-color: #ff4d6d;
+  background: linear-gradient(90deg, #ff4d6d, #ff8fb3);
   padding: 6px 10px;
   border-radius: 12px;
   font-weight: 700;
+  box-shadow: 0 6px 16px rgba(255,77,109,0.25);
 }
 
 .five p {
@@ -212,10 +247,10 @@ body {
 }
 
 .wish-hbd {
-  font-size: 2.6em;
+  font-size: 2.8em;
   margin: 12px 0 0;
   color: #ff4d6d;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Fraunces', 'Pacifico', cursive;
 }
 
 .wish h5 {
@@ -229,6 +264,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   letter-spacing: 0.2px;
+  color: #5a3a3a;
 }
 
 .baloons img {
@@ -308,9 +344,9 @@ body {
   .baloons img {
     width: 140px;
   }
-  .memories img {
-    width: 70px;
-    height: 70px;
+  .memories {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 14px;
   }
 }
 
