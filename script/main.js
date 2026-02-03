@@ -433,6 +433,33 @@ const animationTimeline = () => {
       "+=1"
     );
 
+  // Ensure content is visible after the animation finishes (avoid big blank gaps).
+  tl.set(
+    [
+      ".one",
+      ".two",
+      ".three",
+      ".four",
+      ".idea-1",
+      ".idea-2",
+      ".idea-3",
+      ".idea-4",
+      ".idea-5",
+      ".idea-6",
+      ".wish-hbd",
+      ".wish h5",
+    ],
+    { opacity: 1, y: 0, clearProps: "transform" }
+  );
+  tl.set(".idea-5 span, .idea-6 span", {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    rotation: 0,
+    scale: 1,
+    clearProps: "transform",
+  });
+
   // tl.seek("currentStep");
   // tl.timeScale(2);
 
