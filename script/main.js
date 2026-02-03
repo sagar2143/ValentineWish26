@@ -138,6 +138,7 @@ const fetchData = () => {
 };
 
 // Countdown
+let lastCountdownMinute = null;
 const updateCountdown = () => {
   const countdown = document.getElementById('valCountdown');
   if (!countdown) return;
@@ -151,6 +152,13 @@ const updateCountdown = () => {
   const mins = Math.floor((diff / (1000 * 60)) % 60);
   const secs = Math.floor((diff / 1000) % 60);
   countdown.textContent = `Valentine's Day in ${days}d ${hours}h ${mins}m ${secs}s`;
+  if (lastCountdownMinute !== mins) {
+    lastCountdownMinute = mins;
+    countdown.classList.remove("pulse-on-minute");
+    void countdown.offsetWidth;
+    countdown.classList.add("pulse-on-minute");
+    setTimeout(() => countdown.classList.remove("pulse-on-minute"), 650);
+  }
 };
 
 fetchData().then(() => {

@@ -33,7 +33,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.15) 100%);
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.12) 100%);
   z-index: 1;
 }
 
@@ -41,6 +41,12 @@ body::before {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkleDrift {
+  0% { transform: translateY(0); opacity: 0.25; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-40px); opacity: 0.25; }
 }
 
 
@@ -224,12 +230,31 @@ body::before {
   97% { transform: translateX(-50%) translateY(2px); }
 }
 
+@keyframes titleBreath {
+  0%, 100% { text-shadow: 0 10px 24px rgba(255,77,109,0.28); transform: translateY(0); }
+  50% { text-shadow: 0 14px 30px rgba(255,77,109,0.38); transform: translateY(-2px); }
+}
+
+@keyframes countdownPulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.04); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.val-countdown.pulse-on-minute {
+  animation: countdownPulse 0.6s ease-out;
+}
+
 .one {
   font-size: 3.6rem;
   font-family: 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
   color: #ff4d6d;
   letter-spacing: -0.5px;
   text-shadow: 0 10px 24px rgba(255,77,109,0.28);
+}
+
+#mainHeading {
+  animation: titleBreath 4.5s ease-in-out infinite;
 }
 
 .one,
@@ -310,9 +335,11 @@ body::before {
   box-shadow: 0 6px 18px rgba(255,77,109,0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.memories img:hover {
-  transform: translateY(-4px) rotate(-1deg) scale(1.02);
-  box-shadow: 0 12px 26px rgba(255,77,109,0.28);
+@media (hover: hover) {
+  .memories img:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 16px 34px rgba(255,77,109,0.3);
+  }
 }
 
 .text-box p {
@@ -394,6 +421,22 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
+}
+
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(2px 2px at 80% 20%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,0.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 75% 60%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(2px 2px at 45% 15%, rgba(255,255,255,0.4), transparent 60%);
+  animation: sparkleDrift 22s linear infinite;
 }
 .floating-hearts span {
   position: absolute;
