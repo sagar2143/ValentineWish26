@@ -34,6 +34,7 @@ const collectBaseText = () => {
     surpriseText: byId("surpriseText")?.textContent || "",
     startTitle: byId("startTitle")?.textContent || "",
     startSubtitle: byId("startSubtitle")?.textContent || "",
+    startLangLabel: byId("startLangLabel")?.textContent || "",
     startBtn: byId("startBtn")?.textContent || "",
     endingCard: byId("endingCard")?.textContent || "",
     musicPlay: "Play Music",
@@ -65,6 +66,7 @@ const translations = {
     surpriseText: "শুধু মনে করিয়ে দিতে চেয়েছিলাম যে...",
     startTitle: "শুরু করতে ট্যাপ করুন",
     startSubtitle: "তোমার জন্যই এই ছোট্ট মুহূর্ত।",
+    startLangLabel: "প্রথমে যে ভাষায় এগোতে চান তা বেছে নিন।",
     startBtn: "শুরু",
     endingCard: "সবসময় তোমার ❤",
     musicPlay: "সঙ্গীত চালু",
@@ -103,16 +105,21 @@ const applyLanguage = (lang) => {
   if (byId("wishHeading")) byId("wishHeading").textContent = baseText.wishHeading;
   if (byId("wishText")) byId("wishText").textContent = baseText.wishText;
   if (byId("galleryTitle")) byId("galleryTitle").textContent = baseText.galleryTitle;
-  if (byId("closingLine")) byId("closingLine").textContent = baseText.closingLine;
-  if (byId("replay")) byId("replay").textContent = baseText.replay;
-  if (byId("surpriseText")) byId("surpriseText").textContent = baseText.surpriseText;
+  if (byId("closingLine")) byId("closingLine").textContent = data.closingLine;
+  if (byId("replay")) byId("replay").textContent = data.replay;
+  if (byId("surpriseText")) byId("surpriseText").textContent = data.surpriseText;
   if (byId("startTitle")) byId("startTitle").textContent = data.startTitle;
   if (byId("startSubtitle")) byId("startSubtitle").textContent = data.startSubtitle;
+  if (byId("startLangLabel")) byId("startLangLabel").textContent = data.startLangLabel;
   if (byId("startBtn")) byId("startBtn").textContent = data.startBtn;
   if (byId("endingCard")) byId("endingCard").textContent = baseText.endingCard;
 
-  const langToggle = byId("langToggle");
-  if (langToggle) langToggle.textContent = isBn ? "English" : "বাংলা";
+  const langEn = byId("langEn");
+  const langBn = byId("langBn");
+  if (langEn && langBn) {
+    langEn.classList.toggle("is-active", !isBn);
+    langBn.classList.toggle("is-active", isBn);
+  }
   document.documentElement.setAttribute("lang", isBn ? "bn" : "en");
   updateCountdown();
 };
@@ -291,7 +298,8 @@ setInterval(updateCountdown, 1000);
 document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bgMusic");
   const toggle = document.getElementById("musicToggle");
-  const langToggle = document.getElementById("langToggle");
+  const langEn = document.getElementById("langEn");
+  const langBn = document.getElementById("langBn");
   const overlay = document.getElementById("startOverlay");
   const startBtn = document.getElementById("startBtn");
   const heartCanvas = document.getElementById("heartBurst");
@@ -334,14 +342,16 @@ document.addEventListener("DOMContentLoaded", () => {
     setLabel();
   });
 
-  if (langToggle) {
-    langToggle.addEventListener("click", () => {
-      const nextLang = currentLang === "en" ? "bn" : "en";
-      applyLanguage(nextLang);
-      const overlayVisible = overlay && overlay.style.display !== "none";
-      if (!overlayVisible) {
-        animationTimeline();
-      }
+  if (langEn) {
+    langEn.addEventListener("click", () => {
+      applyLanguage("en");
+      setLabel();
+    });
+  }
+
+  if (langBn) {
+    langBn.addEventListener("click", () => {
+      applyLanguage("bn");
       setLabel();
     });
   }
