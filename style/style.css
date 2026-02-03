@@ -450,7 +450,7 @@ body {
 .surprise-text {
   font-size: 1.6rem;
   color: #ff4d6d;
-  opacity: 0;
+  opacity: 1;
 }
 
 .ending-screen {
