@@ -198,6 +198,33 @@ body::before {
   grid-row: 3 / 4;
 }
 
+.gallery {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22vh;
+}
+.gallery-title {
+  font-size: 2rem;
+  color: #ff4d6d;
+  font-family: 'Pacifico', cursive;
+  margin: 0 0 14px;
+}
+.memories {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.memories img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 18px rgba(255,77,109,0.18);
+}
+
 .text-box p {
   margin: 0;
   text-align: left;
@@ -277,13 +304,6 @@ body::before {
   color: #444;
 }
 
-.lyrics {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  letter-spacing: 0.2px;
-  color: #5a3a3a;
-}
-
 .baloons img {
   display: inline-block;
   position: absolute;
@@ -360,27 +380,6 @@ body::before {
 
   .baloons img {
     width: 140px;
-  }
-  .memories {
-    grid-template-columns: repeat(2, minmax(140px, 1fr));
-    grid-auto-rows: 130px;
-    gap: 12px;
-  }
-  .memories img:nth-child(1) {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-  }
-  .memories img:nth-child(2) {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-  }
-  .memories img:nth-child(3) {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-  }
-  .memories img:nth-child(4) {
-    grid-column: 1 / 3;
-    grid-row: 4 / 5;
   }
 }
 
