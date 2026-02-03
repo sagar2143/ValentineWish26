@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("musicToggle");
   const overlay = document.getElementById("startOverlay");
   const startBtn = document.getElementById("startBtn");
+  const heartCanvas = document.getElementById("heartBurst");
   if (!music || !toggle || !overlay || !startBtn) return;
 
   const setLabel = () => {
@@ -199,3 +200,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setLabel();
 });
+
+// Heart burst on click/tap
+(() => {
+  const canvas = document.getElementById("heartBurst");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const hearts = [];
+  const resize = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+  resize();
+  window.addEventListener("resize", resize);
+
+  const spawn = (x, y) => {
+    for (let i = 0; i < 14; i++) {
+      hearts.push({
+        x,
+        y,
+        vx: (Math.random() - 0.5) * 4,
+        vy: (Math.random() - 1.2) * 4,
+        size: 10 + Math.random() * 8,
+        life: 60 + Math.random() * 20,
+      });
+    }
+  };
+
+  const drawHeart = (x, y, size) => {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(size / 16, size / 16);
+    ctx.fillStyle = "rgba(255,77,109,0.85)";
+    ctx.beginPath();
+    ctx.moveTo(0, -6);
+    ctx.bezierCurveTo(-10, -16, -22, -2, 0, 16);
+    ctx.bezierCurveTo(22, -2, 10, -16, 0, -6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  };
+
+  const tick = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = hearts.length - 1; i >= 0; i--) {
+      const h = hearts[i];
+      h.x += h.vx;
+      h.y += h.vy;
+      h.vy += 0.05;
+      h.life -= 1;
+      if (h.life <= 0) {
+        hearts.splice(i, 1);
+        continue;
+      }
+      drawHeart(h.x, h.y, h.size);
+    }
+    requestAnimationFrame(tick);
+  };
+  tick();
+
+  window.addEventListener("pointerdown", (e) => {
+    spawn(e.clientX, e.clientY);
+  });
+})();
