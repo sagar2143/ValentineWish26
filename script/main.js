@@ -13,19 +13,15 @@ const splitForAnimation = (text, lang) => {
   }
   return parts.map((ch) => (ch === " " ? " " : `<span>${ch}</span>`)).join("");
 };
-const animationTimeline = () => {
+
+const resetTextSplits = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
+  if (textBoxChars) textBoxChars.textContent = textBoxChars.textContent;
+  if (hbd) hbd.textContent = hbd.textContent;
+};
 
-  if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") return;
-
-  // Kill previous timeline (language switch restarts)
-  if (activeTimeline) {
-    activeTimeline.kill();
-    activeTimeline = null;
-  }
-
-  // Reset inline styles from prior animation
+const resetVisibility = () => {
   TweenMax.set(
     [
       ".one",
@@ -45,6 +41,7 @@ const animationTimeline = () => {
       ".idea-6",
       ".wish-hbd",
       ".wish h5",
+      ".fake-btn",
     ],
     { clearProps: "all" }
   );
@@ -52,7 +49,21 @@ const animationTimeline = () => {
   TweenMax.set(".baloons img", { opacity: 1, y: 0 });
   TweenMax.set(".six", { opacity: 1, y: 0, zIndex: 1 });
   TweenMax.set(".four", { opacity: 1, scale: 1, y: 0 });
-  TweenMax.set(".fake-btn", { opacity: 1, scale: 1 });
+};
+const animationTimeline = () => {
+  const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+  const hbd = document.getElementsByClassName("wish-hbd")[0];
+
+  if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") return;
+
+  // Kill previous timeline (language switch restarts)
+  if (activeTimeline) {
+    activeTimeline.kill();
+    activeTimeline = null;
+  }
+
+  // Reset inline styles from prior animation
+  resetVisibility();
 
   const textBoxText = textBoxChars.textContent;
   const hbdText = hbd.textContent;
@@ -108,6 +119,33 @@ const animationTimeline = () => {
       tl.restart();
     });
   }
+};
+
+// Bengali-friendly timeline (no letter split)
+const bengaliTimeline = () => {
+  if (typeof TimelineMax === "undefined") return;
+  if (activeTimeline) {
+    activeTimeline.kill();
+    activeTimeline = null;
+  }
+
+  resetTextSplits();
+  resetVisibility();
+
+  const tl = new TimelineMax();
+  activeTimeline = tl;
+
+  tl.to(".container", 0.1, { visibility: "visible" })
+    .set(
+      [".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"],
+      { opacity: 0, y: 10 }
+    )
+    .staggerTo(
+      [".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"],
+      0.7,
+      { opacity: 1, y: 0 },
+      0.5
+    );
 };
 
 // Custom data
@@ -185,7 +223,11 @@ const setupLanguage = () => {
     safeSet("wishHeading", lines[lang].wishHeading);
     setSendText(lang);
 
-    animationTimeline();
+    if (lang === "bn") {
+      bengaliTimeline();
+    } else {
+      animationTimeline();
+    }
   });
 };
 
