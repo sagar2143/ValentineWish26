@@ -104,7 +104,7 @@ const applyLanguage = (lang) => {
   if (byId("idea6")) byId("idea6").innerHTML = `<span>${data.idea6a}</span><span>${data.idea6b}</span>`;
   if (byId("wishHeading")) byId("wishHeading").textContent = baseText.wishHeading;
   if (byId("wishText")) byId("wishText").textContent = baseText.wishText;
-  if (byId("galleryTitle")) byId("galleryTitle").textContent = baseText.galleryTitle;
+  if (byId("galleryTitle")) byId("galleryTitle").textContent = data.galleryTitle;
   if (byId("closingLine")) byId("closingLine").textContent = data.closingLine;
   if (byId("replay")) byId("replay").textContent = data.replay;
   if (byId("surpriseText")) byId("surpriseText").textContent = data.surpriseText;
