@@ -175,6 +175,7 @@ body::before {
   min-width: 260px;
   text-align: center;
   overflow: hidden;
+  animation: countdownBounce 10s ease-in-out infinite;
 }
 .val-countdown::before {
   content: "❤";
@@ -201,6 +202,12 @@ body::before {
   40% { opacity: 1; }
   60% { opacity: 1; }
   100% { transform: translateX(260%); opacity: 0; }
+}
+
+@keyframes countdownBounce {
+  0%, 90%, 100% { transform: translateX(-50%) translateY(0); }
+  94% { transform: translateX(-50%) translateY(-4px); }
+  97% { transform: translateX(-50%) translateY(2px); }
 }
 
 .one {
@@ -468,10 +475,17 @@ body::before {
   font-weight: 700;
   position: relative;
   pointer-events: auto;
+  text-shadow: 0 0 10px rgba(255,77,109,0.25);
+  animation: replayGlow 2.8s ease-in-out infinite;
 }
 
 .nine {
   z-index: 5;
+}
+
+@keyframes replayGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,77,109,0.25); }
+  50% { text-shadow: 0 0 18px rgba(255,77,109,0.5); }
 }
 .surprise-text {
   font-size: 1.6rem;
