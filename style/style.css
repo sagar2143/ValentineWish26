@@ -273,6 +273,12 @@ body {
   cursor: pointer;
   color: #ff4d6d;
   font-weight: 700;
+  position: relative;
+  pointer-events: auto;
+}
+
+.nine {
+  z-index: 5;
 }
 
 @media screen and (max-width: 700px) {

@@ -95,10 +95,10 @@ const animationTimeline = () => {
     .staggerFromTo(".wish-hbd span", 0.7, { scale: 1.4, rotationY: 150 }, { scale: 1, rotationY: 0, color: "#ff69b4", ease: Expo.easeOut }, 0.1, "party")
     .from(".wish h5", 0.5, { opacity: 0, y: 10, skewX: "-15deg" }, "party")
     .to(".six", 0.5, { opacity: 0, y: 30, zIndex: "-1" }, "+=1")
+    .staggerTo(".eight svg", 1.0, { visibility: "visible", opacity: 0, scale: 80, repeat: 1, repeatDelay: 0.8 }, 0.3)
     .from(".gallery", 0.8, { opacity: 0, y: 10 })
     .staggerFrom(".memories img", 0.6, { opacity: 0, y: 30 }, 0.3)
-    .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=3")
-    .staggerTo(".eight svg", 1.0, { visibility: "visible", opacity: 0, scale: 80, repeat: 1, repeatDelay: 0.8 }, 0.3)
+    .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=2")
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(".last-smile", 0.5, { rotation: 90 }, "+=1");
 
