@@ -96,9 +96,9 @@ const animationTimeline = () => {
     .from(".wish h5", 0.5, { opacity: 0, y: 10, skewX: "-15deg" }, "party")
     .to(".six", 0.5, { opacity: 0, y: 30, zIndex: "-1" }, "+=1")
     .staggerTo(".eight svg", 0.6, { visibility: "visible", opacity: 0, scale: 60, repeat: 1, repeatDelay: 0.2 }, 0.2)
-    .from(".gallery", 0.6, { opacity: 0, y: 12 }, "-=1.2")
-    .staggerFrom(".memories img", 0.6, { opacity: 0, y: 24, scale: 0.95, ease: Power2.easeOut }, 0.18)
-    .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=3.5")
+    .from(".gallery", 0.8, { opacity: 0, y: 12 }, "-=1.2")
+    .staggerFrom(".memories img", 0.9, { opacity: 0, y: 24, scale: 0.95, ease: Power2.easeOut }, 0.35)
+    .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=4.5")
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(".last-smile", 0.5, { rotation: 90 }, "+=1");
 
