@@ -1,14 +1,7 @@
-<<<<<<< ours
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&display=swap');
-=======
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&display=swap');
->>>>>>> theirs
 
 html {
   box-sizing: border-box;
@@ -20,19 +13,10 @@ html {
 
 body {
   margin: 0;
-<<<<<<< ours
-  font-family: 'Quicksand', 'Noto Serif Bengali', sans-serif;
-  background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.35), transparent 60%),
-    radial-gradient(900px 500px at 90% 20%, rgba(255,182,193,0.45), transparent 60%),
-    linear-gradient(135deg, #ffb6c1 0%, #ff8fb3 35%, #ff6f91 70%, #ffd1dc 100%);
-=======
   font-family: 'Poppins', 'Noto Serif Bengali', sans-serif;
   background: linear-gradient(135deg, #ffb6c1 0%, #ff9a9e 40%, #fad0c4 100%);
->>>>>>> theirs
   overflow: hidden;
 }
-
 
 .music-toggle {
   position: fixed;
@@ -103,13 +87,8 @@ body {
 }
 
 .one {
-<<<<<<< ours
-  font-size: 3.8rem;
-  font-family: 'Cormorant Garamond', 'Noto Serif Bengali', serif;
-=======
   font-size: 3.6rem;
   font-family: 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
->>>>>>> theirs
   color: #ff4d6d;
 }
 
@@ -128,11 +107,6 @@ body {
   font-size: 2.6rem;
   color: #ff4d6d;
   font-weight: 700;
-<<<<<<< ours
-  text-shadow: 0 4px 18px rgba(255,77,109,0.2);
-  font-family: 'Cormorant Garamond', 'Noto Serif Bengali', serif;
-=======
->>>>>>> theirs
 }
 
 .four .text-box {
@@ -151,80 +125,21 @@ body {
   right: 0;
   top: 22vh;
 }
+
 .gallery-title {
   font-size: 2rem;
   color: #ff4d6d;
-<<<<<<< ours
-  font-family: 'Cormorant Garamond', 'Noto Serif Bengali', serif;
-=======
   font-family: 'Pacifico', cursive;
->>>>>>> theirs
   margin: 0 0 14px;
-}
-.memories {
-<<<<<<< ours
-  display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr));
-  grid-auto-rows: 150px;
-  gap: 16px;
-  justify-content: center;
-  align-items: stretch;
-  max-width: 980px;
-  margin: 0 auto;
-}
-.memories img {
-  width: 100%;
-  height: 100%;
-=======
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.memories img {
-  width: 90px;
-  height: 90px;
->>>>>>> theirs
-  object-fit: cover;
-  border-radius: 14px;
-  border: 2px solid #fff;
-  box-shadow: 0 6px 18px rgba(255,77,109,0.18);
-}
-.memories img:nth-child(1) {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
-.memories img:nth-child(2) {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
-.memories img:nth-child(3) {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-.memories img:nth-child(4) {
-  grid-column: 1 / 4;
-  grid-row: 3 / 4;
 }
 
-.gallery {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 22vh;
-}
-.gallery-title {
-  font-size: 2rem;
-  color: #ff4d6d;
-  font-family: 'Pacifico', cursive;
-  margin: 0 0 14px;
-}
 .memories {
   display: flex;
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .memories img {
   width: 90px;
   height: 90px;
@@ -302,11 +217,7 @@ body {
   font-size: 2.6em;
   margin: 12px 0 0;
   color: #ff4d6d;
-<<<<<<< ours
-  font-family: 'Cormorant Garamond', 'Noto Serif Bengali', serif;
-=======
   font-family: 'Pacifico', cursive;
->>>>>>> theirs
 }
 
 .wish h5 {
@@ -316,15 +227,12 @@ body {
   color: #444;
 }
 
-<<<<<<< ours
-=======
 .lyrics {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   letter-spacing: 0.2px;
 }
 
->>>>>>> theirs
 .baloons img {
   display: inline-block;
   position: absolute;
@@ -402,13 +310,11 @@ body {
   .baloons img {
     width: 140px;
   }
-<<<<<<< ours
-=======
+
   .memories img {
     width: 70px;
     height: 70px;
   }
->>>>>>> theirs
 }
 
 @media screen and (max-width: 500px) {
