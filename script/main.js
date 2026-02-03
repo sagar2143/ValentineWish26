@@ -112,7 +112,7 @@ const applyLanguage = (lang) => {
   if (byId("startSubtitle")) byId("startSubtitle").textContent = data.startSubtitle;
   if (byId("startLangLabel")) byId("startLangLabel").textContent = data.startLangLabel;
   if (byId("startBtn")) byId("startBtn").textContent = data.startBtn;
-  if (byId("endingCard")) byId("endingCard").textContent = baseText.endingCard;
+  if (byId("endingCard")) byId("endingCard").textContent = data.endingCard;
 
   const langEn = byId("langEn");
   const langBn = byId("langBn");
