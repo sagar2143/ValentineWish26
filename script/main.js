@@ -102,7 +102,8 @@ const animationTimeline = () => {
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .from("#surpriseText", 0.8, { opacity: 0, y: 10 }, "+=0.4")
     .to(".last-smile", 0.5, { rotation: 90 }, "+=0.6")
-    .to("#endingScreen", 0.8, { opacity: 1 }, "+=1.8");
+    .to("#endingScreen", 0.8, { opacity: 1 }, "+=1.8")
+    .to("#endingScreen", 0.8, { opacity: 0 }, "+=2.5");
 
   const replyBtn = document.getElementById("replay");
   if (replyBtn) {
