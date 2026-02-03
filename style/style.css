@@ -315,29 +315,15 @@ body::before {
 }
 
 .container {
-  width: min(92vw, 880px);
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 32px;
-  border: 1.5px solid var(--glass-border);
-  padding: 36px 28px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
-  animation: floatIn 1.2s ease forwards;
-  margin: 32px auto;
+  width: min(92vw, 1080px);
+  background: transparent;
+  border-radius: 24px;
+  border: none;
+  padding: 28px 24px 40px;
+  box-shadow: none;
+  margin: 24px auto 40px;
   position: relative;
   z-index: 2;
-}
-.container::before {
-  content: '';
-  position: absolute;
-  top: -6px; left: -6px; right: -6px; bottom: -6px;
-  border-radius: 36px;
-  pointer-events: none;
-  z-index: 1;
-  box-shadow: 0 0 32px 8px #ffb6c1, 0 0 64px 16px #ff4d6d;
-  opacity: 0.7;
-  animation: glowPulse 2.5s infinite alternate;
 }
 @keyframes glowPulse {
   0% { opacity: 0.7; box-shadow: 0 0 32px 8px #ffb6c1, 0 0 64px 16px #ff4d6d; }
@@ -345,14 +331,8 @@ body::before {
 }
 
 @keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes drift {
   0% { background-position: 0 0; }
@@ -383,16 +363,22 @@ body::before {
   background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
 }
 
-/* Text reveal animation */
-.reveal span {
+/* Section reveal animation */
+.section-reveal {
   opacity: 0;
-  display: inline-block;
-  animation: revealIn 0.5s ease forwards;
-  animation-delay: var(--d, 0s);
+  transform: translateY(12px);
+  animation: sectionIn 0.6s ease forwards;
+  animation-delay: var(--delay, 0s);
 }
-@keyframes revealIn {
-  from { opacity: 0; transform: translateY(6px); }
+@keyframes sectionIn {
   to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 h1 {
@@ -532,11 +518,23 @@ p {
 
 .valentine-msg {
   margin-bottom: 32px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: 0 10px 30px rgba(255,77,109,0.12);
 }
 
 .ideas {
   margin-bottom: 32px;
   text-align: center;
+}
+.ideas, .gallery-section, .quote-section, .love-meter-section, .wish-section, .music-section, .note-section, .surprise-section {
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 20px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 26px rgba(255,77,109,0.10);
 }
 .wish-section {
   margin-bottom: 32px;

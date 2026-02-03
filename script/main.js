@@ -75,53 +75,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Text reveal (simple, stable)
+// Section reveal (stable, no letter-splitting)
 function animateText() {
-  const targets = [
-    '#mainHeading',
-    '#greetingText',
-    '#valMsg',
-    '#idea1',
-    '#idea2',
-    '#idea3',
-    '#idea4',
-    '#idea5',
-    '#idea6',
-    '#wishHeading',
+  const sections = [
+    '.countdown-section',
+    '.hero',
+    '.valentine-msg',
+    '.ideas',
+    '.music-section',
+    '.note-section',
+    '.gallery-section',
+    '.quote-section',
+    '.surprise-section',
+    '.love-meter-section',
+    '.wish-section',
+    '.feedback',
+    'footer.signature',
   ];
-
-  targets.forEach((selector) => {
+  sections.forEach((selector, index) => {
     const el = document.querySelector(selector);
     if (!el) return;
-    const text = el.innerHTML;
-    const chars = [];
-    for (let i = 0; i < text.length; i++) {
-      const ch = text[i];
-      if (ch === '<') {
-        const end = text.indexOf('>', i);
-        if (end !== -1) {
-          chars.push(text.slice(i, end + 1));
-          i = end;
-          continue;
-        }
-      }
-      chars.push(ch);
-    }
-    let output = '';
-    let delayIndex = 0;
-    chars.forEach((ch) => {
-      if (ch.startsWith('<')) {
-        output += ch;
-      } else if (ch === ' ') {
-        output += ' ';
-      } else {
-        const delay = (delayIndex * 0.02).toFixed(2);
-        output += `<span style="--d:${delay}s">${ch}</span>`;
-        delayIndex += 1;
-      }
-    });
-    el.classList.add('reveal');
-    el.innerHTML = output;
+    el.classList.add('section-reveal');
+    el.style.setProperty('--delay', `${index * 0.15}s`);
   });
 }
 // Love Meter Animation
