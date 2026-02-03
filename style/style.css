@@ -656,6 +656,18 @@ body::before {
   border: 1px solid rgba(255,255,255,0.8);
 }
 
+html[lang="bn"] .nine p {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 2.4rem;
+  line-height: 1.25;
+}
+
+html[lang="bn"] .ending-card {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 2.1rem;
+  letter-spacing: 0;
+}
+
 @media screen and (max-width: 700px) {
   .container {
     width: 92vw;
