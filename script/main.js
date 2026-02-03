@@ -41,15 +41,14 @@ const collectBaseText = () => {
     musicPause: "Pause Music",
     countdownPrefix: "Valentine's Day in",
   };
-};
 
 const translations = {
   bn: {
     mainHeadingPrefix: "আমার প্রিয়",
     greetingText: "বাই দ্য ওয়ে, আমি বুবুকে বেশি ভালোবাসি!",
-    introText: "ভ্যালেন্টাইনস ডে এখনও একটু দূরে, কিন্তু আমার ভালোবাসা আর অপেক্ষা করতে পারল না।",
-    valMsg: "শুভ ভ্যালেন্টাইনস ডে, আমার ভালোবাসা!",
-    chatboxText: "তোমার সাথে প্রতিটি মুহূর্ত আমার প্রিয়। তুমি কি আমার চিরকালের ভ্যালেন্টাইন হবে?",
+    introText: "ভ্যালেন্টাইন্স ডে এখনও একটু দূরে, কিন্তু আমার ভালোবাসা আর অপেক্ষা করতে পারল না।",
+    valMsg: "শুভ ভ্যালেন্টাইন্স ডে, আমার ভালোবাসা!",
+    chatboxText: "তোমার সাথে প্রতিটি মুহূর্ত আমার প্রিয়। তুমি কি আমার চিরকালের ভ্যালেন্টাইন্স হবে?",
     sendBtn: "পাঠাও",
     idea1: "ভেবেছিলাম একটা সহজ শুভেচ্ছাই যথেষ্ট...",
     idea2: "কিন্তু আমার হৃদয় চেয়েছিল আরও...",
@@ -58,7 +57,7 @@ const translations = {
     idea5HTML: "তুমি আমার সবকিছু! <span>:) </span>",
     idea6a: "তা",
     idea6b: "ই",
-    wishHeading: "শুভ ভ্যালেন্টাইনস ডে, সুন্দরী!",
+    wishHeading: "শুভ ভ্যালেন্টাইন্স ডে, সুন্দরী!",
     wishText: "“তোমার চোখে কত অদ্ভুত অদ্ভুত অঙ্গভঙ্গি, তোমার সেই বাতাসগুলো আমার নিঃশ্বাসকে ঘুড়ি বানায়।”",
     galleryTitle: "আমাদের স্মৃতি",
     closingLine: "আশা করি, এটা তোমার মুখে একটা হাসি এনে দিয়েছে, আমার ভালোবাসা।",
@@ -71,7 +70,7 @@ const translations = {
     endingCard: "আমি সবসময় তোমার ❤",
     musicPlay: "সঙ্গীত চালু",
     musicPause: "সঙ্গীত বন্ধ",
-    countdownPrefix: "ভ্যালেন্টাইন ডে হতে বাকি",
+    countdownPrefix: "ভ্যালেন্টাইন্স ডে হতে বাকি",
   },
 };
 
@@ -326,6 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     overlay.style.display = "none";
+    const startCard = document.querySelector(".start-card");
+    if (startCard) {
+      startCard.classList.add("is-active");
+      setTimeout(() => startCard.classList.remove("is-active"), 800);
+    }
     applyLanguage(currentLang);
     animationTimeline();
     setLabel();

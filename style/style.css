@@ -69,6 +69,12 @@ body::before {
   text-align: center;
   box-shadow: 0 16px 40px rgba(255,77,109,0.2);
   min-width: 260px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.start-card.is-active {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 50px rgba(255,77,109,0.28);
 }
 
 .start-lang-label {
@@ -111,6 +117,21 @@ body::before {
   font-size: 2rem;
   color: #ff4d6d;
   margin-bottom: 6px;
+  position: relative;
+}
+
+.start-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(255,255,255,0.7), rgba(255,255,255,0));
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.7;
 }
 
 .start-subtitle {
@@ -129,10 +150,34 @@ body::before {
   cursor: pointer;
   box-shadow: 0 8px 18px rgba(255,77,109,0.25);
   animation: startPulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
 }
 @keyframes startPulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+.start-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.start-btn:hover::after {
+  opacity: 1;
+  animation: buttonShimmer 1.2s ease-in-out;
+}
+
+@keyframes buttonShimmer {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(250%); }
 }
 
 .music-toggle {
