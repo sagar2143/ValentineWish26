@@ -394,6 +394,12 @@ body::before {
 .floating-hearts span:nth-child(15) { left: 58%; animation-duration: 14s; animation-delay: 1.9s; }
 .floating-hearts span:nth-child(16) { left: 70%; animation-duration: 10s; animation-delay: 2.4s; }
 .floating-hearts span:nth-child(17) { left: 86%; animation-duration: 16s; animation-delay: 0.9s; }
+.floating-hearts span:nth-child(18) { left: 3%; animation-duration: 13s; animation-delay: 1.3s; }
+.floating-hearts span:nth-child(19) { left: 12%; animation-duration: 11s; animation-delay: 0.4s; }
+.floating-hearts span:nth-child(20) { left: 32%; animation-duration: 14s; animation-delay: 2.9s; }
+.floating-hearts span:nth-child(21) { left: 44%; animation-duration: 12s; animation-delay: 1.8s; }
+.floating-hearts span:nth-child(22) { left: 67%; animation-duration: 15s; animation-delay: 0.7s; }
+.floating-hearts span:nth-child(23) { left: 94%; animation-duration: 12s; animation-delay: 2.6s; }
 
 @keyframes floatUp {
   0% { transform: translateY(0) scale(0.8); opacity: 0; }

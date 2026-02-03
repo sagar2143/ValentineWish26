@@ -1,6 +1,27 @@
 ﻿// Animation Timeline (English)
 let activeTimeline = null;
 
+let typingTimer = null;
+const startLyricsTyping = (el) => {
+  if (!el) return;
+  if (typingTimer) {
+    clearInterval(typingTimer);
+    typingTimer = null;
+  }
+  const full = el.dataset.fullText || el.textContent;
+  el.dataset.fullText = full;
+  el.textContent = "";
+  let i = 0;
+  typingTimer = setInterval(() => {
+    el.textContent += full[i];
+    i += 1;
+    if (i >= full.length) {
+      clearInterval(typingTimer);
+      typingTimer = null;
+    }
+  }, 35);
+};
+
 const resetVisibility = () => {
   if (typeof TweenMax === "undefined") return;
   TweenMax.set(
@@ -36,6 +57,7 @@ const resetVisibility = () => {
 const animationTimeline = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
+  const wishTextEl = document.getElementById("wishText");
 
   if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") return;
 
@@ -94,6 +116,7 @@ const animationTimeline = () => {
     .staggerFrom(".wish-hbd span", 0.7, { opacity: 0, y: -50, rotation: 150, skewX: "30deg", ease: Elastic.easeOut.config(1, 0.5) }, 0.1)
     .staggerFromTo(".wish-hbd span", 0.7, { scale: 1.4, rotationY: 150 }, { scale: 1, rotationY: 0, color: "#ff69b4", ease: Expo.easeOut }, 0.1, "party")
     .from(".wish h5", 0.5, { opacity: 0, y: 10, skewX: "-15deg" }, "party")
+    .call(() => startLyricsTyping(wishTextEl), null, null, "+=0.2")
     .to(".six", 0.5, { opacity: 0, y: 30, zIndex: "-1" }, "+=1")
     .staggerTo(".eight svg", 0.6, { visibility: "visible", opacity: 0, scale: 60, repeat: 1, repeatDelay: 0.2 }, 0.2)
     .from(".gallery", 0.8, { opacity: 0, y: 12 }, "-=2.8")
