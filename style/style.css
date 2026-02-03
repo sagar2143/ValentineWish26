@@ -287,6 +287,9 @@ body {
   padding: 0 16px;
   text-align: center;
   line-height: 1.2;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wish h5 {
@@ -379,6 +382,7 @@ body {
     font-size: 2rem;
     padding: 0 12px;
     line-height: 1.25;
+    max-width: 92%;
   }
 
   .wish h5 {
