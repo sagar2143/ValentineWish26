@@ -20,12 +20,13 @@
     <div class="sparkle-layer" aria-hidden="true"></div>
     <audio id="bgMusic" src="song1.mp3" preload="auto"></audio>
     <button id="musicToggle" class="music-toggle" aria-label="Toggle music">Pause Music</button>
+    <button id="langToggle" class="lang-toggle" aria-label="Toggle language">বাংলা</button>
     <div id="valCountdown" class="val-countdown"></div>
 
     <div id="startOverlay" class="start-overlay">
       <div class="start-card">
-        <div class="start-title">Tap to Begin</div>
-        <div class="start-subtitle">A moment crafted just for you, because you mean everything.</div>
+        <div class="start-title" id="startTitle">Tap to Begin</div>
+        <div class="start-subtitle" id="startSubtitle">A moment crafted just for you, because you mean everything.</div>
         <button id="startBtn" class="start-btn">Start</button>
       </div>
     </div>
@@ -45,10 +46,10 @@
 
       <div class="four">
         <div class="text-box">
-          <p class="hbd-chatbox">
+          <p class="hbd-chatbox" id="chatboxText">
             Every moment with you is my favorite. Will you be my Valentine forever?
           </p>
-          <p class="fake-btn">Send</p>
+          <p class="fake-btn" id="sendBtn">Send</p>
         </div>
       </div>
 
@@ -105,7 +106,7 @@
       </div>
 
       <div class="gallery">
-        <h3 class="gallery-title">Our Memories</h3>
+        <h3 class="gallery-title" id="galleryTitle">Our Memories</h3>
         <div class="memories">
           <img src="img/img1.jpg" alt="Memory 1" />
           <img src="img/img2.jpg" alt="Memory 2" />
@@ -117,7 +118,7 @@
       </div>
 
       <div class="nine">
-        <p>I hope this made you smile, my love.</p>
+        <p id="closingLine">I hope this made you smile, my love.</p>
         <p id="replay">Or click, if you want to watch it again.</p>
         <p id="surpriseText" class="surprise-text">Just wanted you to remember that...</p>
         <p class="last-smile">:)</p>
@@ -125,7 +126,7 @@
     </div>
 
     <div id="endingScreen" class="ending-screen" aria-hidden="true">
-      <div class="ending-card">I'm Always Yours ❤</div>
+      <div class="ending-card" id="endingCard">I'm Always Yours ❤</div>
     </div>
   </body>
 
