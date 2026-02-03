@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /* Surprise Me Button & Message */
 .surprise-btn {
   margin-top: 8px;
@@ -284,8 +288,6 @@
   100% { transform: scale(1); }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
 :root {
   --bg-gradient: linear-gradient(135deg, #ffb6c1 0%, #ff9a9e 40%, #fad0c4 100%);
   --glass-bg: rgba(255, 255, 255, 0.30);
@@ -396,8 +398,6 @@ h1 span::after {
   filter: drop-shadow(0 0 6px #ffb6c1);
   animation: heartBeat 1.2s infinite;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 p {
   margin-top: 14px;
