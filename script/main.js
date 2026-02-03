@@ -163,17 +163,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // Animation Timeline
 const animationTimeline = () => {
+  if (typeof TimelineMax === "undefined") {
+    console.warn("GSAP not loaded; skipping animation timeline.");
+    return;
+  }
   // Spit chars that needs to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
+  if (!textBoxChars || !hbd) return;
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -433,9 +438,11 @@ const animationTimeline = () => {
 
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+  if (replyBtn) {
+    replyBtn.addEventListener("click", () => {
+      tl.restart();
+    });
+  }
 };
 
 // Import the data to customize and insert them into page
