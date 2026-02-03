@@ -121,6 +121,7 @@ const applyLanguage = (lang) => {
     langBn.classList.toggle("is-active", isBn);
   }
   document.documentElement.setAttribute("lang", isBn ? "bn" : "en");
+  setMusicForLang(currentLang, false);
   updateCountdown();
 };
 
@@ -154,6 +155,25 @@ const resetVisibility = () => {
   TweenMax.set(".baloons img", { opacity: 1, y: 0 });
   TweenMax.set(".six", { opacity: 1, y: 0, zIndex: 1 });
   TweenMax.set(".four", { opacity: 1, scale: 1, y: 0 });
+};
+
+const setMusicForLang = (lang, restart = false) => {
+  const music = document.getElementById("bgMusic");
+  if (!music) return;
+  const songEn = music.dataset.songEn || "song1.mp3";
+  const songBn = music.dataset.songBn || "song2.mp3";
+  const nextSrc = lang === "bn" ? songBn : songEn;
+  if (music.getAttribute("src") !== nextSrc) {
+    music.setAttribute("src", nextSrc);
+    music.load();
+  }
+  if (restart) {
+    music.currentTime = 0;
+    const playPromise = music.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  }
 };
 
 const animationTimeline = () => {
@@ -235,6 +255,7 @@ const animationTimeline = () => {
       tl.restart();
       const music = document.getElementById("bgMusic");
       if (music) {
+        setMusicForLang(currentLang, false);
         music.currentTime = 0;
         music.play();
       }
@@ -318,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const startAll = () => {
+    setMusicForLang(currentLang, false);
     music.currentTime = 0;
     const playPromise = music.play();
     if (playPromise && typeof playPromise.catch === "function") {
@@ -350,6 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (langEn) {
     langEn.addEventListener("click", () => {
       applyLanguage("en");
+      setMusicForLang("en", !music.paused);
       setLabel();
     });
   }
@@ -357,6 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (langBn) {
     langBn.addEventListener("click", () => {
       applyLanguage("bn");
+      setMusicForLang("bn", !music.paused);
       setLabel();
     });
   }
