@@ -9,6 +9,7 @@ const resetVisibility = () => {
       ".two",
       ".three",
       ".four",
+      ".gallery",
       ".five",
       ".six",
       ".seven",
@@ -67,6 +68,9 @@ const animationTimeline = () => {
     .from(".two", 0.4, { opacity: 0, y: 10 })
     .to(".one", 0.7, { opacity: 0, y: 10 }, "+=2.5")
     .to(".two", 0.7, { opacity: 0, y: 10 }, "-=1")
+    .from(".gallery", 0.7, { opacity: 0, y: 10 })
+    .staggerFrom(".memories img", 0.5, { opacity: 0, y: 20 }, 0.2)
+    .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=1.2")
     .from(".three", 0.7, { opacity: 0, y: 10 })
     .to(".three", 0.7, { opacity: 0, y: 10 }, "+=2")
     .from(".four", 0.7, { scale: 0.2, opacity: 0 })

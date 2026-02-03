@@ -1,6 +1,7 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&display=swap');
 
 html {
   box-sizing: border-box;
@@ -71,10 +72,19 @@ body {
 }
 
 .val-countdown {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
   font-size: 1rem;
   color: #ff4d6d;
   font-weight: 700;
-  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.15);
 }
 
 .one {
@@ -108,6 +118,33 @@ body {
   padding: 16px 18px;
   position: relative;
   background: rgba(255,255,255,0.8);
+}
+
+.gallery {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22vh;
+}
+.gallery-title {
+  font-size: 2rem;
+  color: #ff4d6d;
+  font-family: 'Pacifico', cursive;
+  margin: 0 0 14px;
+}
+.memories {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.memories img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 18px rgba(255,77,109,0.18);
 }
 
 .text-box p {
@@ -188,6 +225,12 @@ body {
   color: #444;
 }
 
+.lyrics {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  letter-spacing: 0.2px;
+}
+
 .baloons img {
   display: inline-block;
   position: absolute;
@@ -264,6 +307,10 @@ body {
 
   .baloons img {
     width: 140px;
+  }
+  .memories img {
+    width: 70px;
+    height: 70px;
   }
 }
 
