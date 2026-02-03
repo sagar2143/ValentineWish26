@@ -1,6 +1,5 @@
 ﻿// Animation Timeline (English)
 let activeTimeline = null;
-const currentLang = (document.body && document.body.dataset && document.body.dataset.lang) ? document.body.dataset.lang : "en";
 
 const resetVisibility = () => {
   if (typeof TweenMax === "undefined") return;
@@ -107,23 +106,6 @@ const animationTimeline = () => {
   }
 };
 
-// Bengali-friendly timeline (no letter split)
-const bengaliTimeline = () => {
-  if (typeof TimelineMax === "undefined") return;
-  if (activeTimeline) {
-    activeTimeline.kill();
-    activeTimeline = null;
-  }
-  resetVisibility();
-
-  const tl = new TimelineMax();
-  activeTimeline = tl;
-
-  tl.to(".container", 0.1, { visibility: "visible" })
-    .set([".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"], { opacity: 0, y: 10 })
-    .staggerTo([".one", ".three", ".four", ".five", ".six", ".seven", ".eight", ".nine"], 0.7, { opacity: 1, y: 0 }, 0.5);
-};
-
 // Custom data
 const fetchData = () => {
   return fetch("./customize.json")
@@ -140,16 +122,6 @@ const fetchData = () => {
         }
       });
     });
-};
-
-// Language Switcher (swap page)
-const setupLanguage = () => {
-  const langBtn = document.getElementById("langSwitch");
-  if (!langBtn) return;
-  langBtn.addEventListener("click", () => {
-    const target = currentLang === "bn" ? "index.html" : "bn.html";
-    window.location.href = target;
-  });
 };
 
 // Countdown
@@ -169,13 +141,8 @@ const updateCountdown = () => {
 };
 
 fetchData().then(() => {
-  if (currentLang === "bn") {
-    bengaliTimeline();
-  } else {
-    animationTimeline();
-  }
+  animationTimeline();
 });
-setupLanguage();
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
