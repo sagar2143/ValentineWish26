@@ -25,6 +25,22 @@ body {
   overflow: hidden;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 32 32'%3E%3Cpath d='M16 29s-13-8.35-13-17A7 7 0 0 1 16 5a7 7 0 0 1 13 7c0 8.65-13 17-13 17z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  animation: floatHearts 26s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px -200px; }
+}
+
 .start-overlay {
   position: fixed;
   inset: 0;
@@ -68,6 +84,11 @@ body {
   padding: 10px 22px;
   cursor: pointer;
   box-shadow: 0 8px 18px rgba(255,77,109,0.25);
+  animation: startPulse 2s ease-in-out infinite;
+}
+@keyframes startPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .music-toggle {
@@ -140,11 +161,23 @@ body {
   min-width: 260px;
   text-align: center;
 }
+.val-countdown::before {
+  content: "❤";
+  margin-right: 6px;
+  display: inline-block;
+  animation: pulseHeart 1.6s ease-in-out infinite;
+}
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
 
 .one {
   font-size: 3.6rem;
   font-family: 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
   color: #ff4d6d;
+  letter-spacing: -0.5px;
+  text-shadow: 0 10px 24px rgba(255,77,109,0.28);
 }
 
 .one span {
@@ -211,6 +244,11 @@ body {
   border-radius: 14px;
   border: 2px solid #fff;
   box-shadow: 0 6px 18px rgba(255,77,109,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.memories img:hover {
+  transform: translateY(-4px) rotate(-1deg) scale(1.02);
+  box-shadow: 0 12px 26px rgba(255,77,109,0.28);
 }
 
 .text-box p {
@@ -304,6 +342,8 @@ body {
   font-family: 'Ephesis', cursive;
   font-style: italic;
   letter-spacing: 0.2px;
+  line-height: 1.3;
+  color: #5a3a3a;
 }
 
 .baloons img {
