@@ -101,10 +101,21 @@ body {
   padding: 8px 16px;
   transition: transform 0.18s, box-shadow 0.18s;
   outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .music-toggle:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(255,77,109,0.24);
+}
+.music-toggle:active {
+  transform: scale(0.98);
+}
+.music-toggle.pulse {
+  animation: buttonPulse 1.8s ease-in-out infinite;
+}
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 6px 18px rgba(255,77,109,0.22); }
+  50% { box-shadow: 0 10px 24px rgba(255,77,109,0.35); }
 }
 
 .container {
@@ -435,6 +446,34 @@ body {
 
 .nine {
   z-index: 5;
+}
+.surprise-text {
+  font-size: 1.6rem;
+  color: #ff4d6d;
+  opacity: 0;
+}
+
+.ending-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 182, 193, 0.35);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15000;
+}
+.ending-card {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: #ff4d6d;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 18px 28px;
+  box-shadow: 0 12px 30px rgba(255,77,109,0.2);
+  border: 1px solid rgba(255,255,255,0.8);
 }
 
 @media screen and (max-width: 700px) {

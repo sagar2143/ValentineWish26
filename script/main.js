@@ -100,7 +100,9 @@ const animationTimeline = () => {
     .staggerFrom(".memories img", 0.9, { opacity: 0, y: 24, scale: 0.95, ease: Power2.easeOut }, 0.35)
     .to(".gallery", 0.7, { opacity: 0, y: 10 }, "+=4.5")
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(".last-smile", 0.5, { rotation: 90 }, "+=1");
+    .from("#surpriseText", 0.8, { opacity: 0, y: 10 }, "+=1")
+    .to(".last-smile", 0.5, { rotation: 90 }, "+=1")
+    .to("#endingScreen", 0.8, { opacity: 1 }, "+=0.8");
 
   const replyBtn = document.getElementById("replay");
   if (replyBtn) {
@@ -166,6 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const setLabel = () => {
     toggle.textContent = music.paused ? "Play Music" : "Pause Music";
+    if (music.paused) {
+      toggle.classList.remove("pulse");
+    } else {
+      toggle.classList.add("pulse");
+    }
   };
 
   const startAll = () => {
