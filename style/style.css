@@ -32,6 +32,7 @@
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 0;
+  opacity: 0.9;
 }
 .svg-heart {
   position: absolute;
@@ -310,6 +311,7 @@ body::before {
   background-repeat: repeat;
   opacity: 0.7;
   pointer-events: none;
+  animation: drift 18s linear infinite;
 }
 
 .container {
@@ -351,6 +353,46 @@ body::before {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+@keyframes drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 120px 120px; }
+}
+
+/* Language Switcher Button */
+.lang-switch {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10001;
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(255,77,109,0.18);
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.lang-switch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.24);
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
+}
+
+/* Text reveal animation */
+.reveal span {
+  opacity: 0;
+  display: inline-block;
+  animation: revealIn 0.5s ease forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
