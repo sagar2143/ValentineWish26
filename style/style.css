@@ -204,6 +204,20 @@ body::before {
   100% { transform: translateX(260%); opacity: 0; }
 }
 
+@keyframes textShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffd1dc 45%, #ff4d6d 90%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmer 6s ease-in-out infinite;
+}
+
 @keyframes countdownBounce {
   0%, 90%, 100% { transform: translateX(-50%) translateY(0); }
   94% { transform: translateX(-50%) translateY(-4px); }
@@ -216,6 +230,19 @@ body::before {
   color: #ff4d6d;
   letter-spacing: -0.5px;
   text-shadow: 0 10px 24px rgba(255,77,109,0.28);
+}
+
+.one,
+#valMsg,
+.gallery-title,
+.wish-hbd,
+#replay {
+  background: linear-gradient(90deg, #ff4d6d 0%, #ffd1dc 45%, #ff4d6d 90%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmer 6s ease-in-out infinite;
 }
 
 .one span {
