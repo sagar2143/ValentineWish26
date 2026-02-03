@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
 
 html {
   box-sizing: border-box;
@@ -185,6 +188,7 @@ body {
   left: 0;
   right: 0;
   color: #ff4d6d;
+  font-family: 'Dancing Script', 'Alex Brush', cursive;
 }
 
 .idea-3 strong {
@@ -237,7 +241,7 @@ body {
 }
 
 .lyrics {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Passions Conflict', cursive;
   font-style: italic;
   letter-spacing: 0.2px;
 }
