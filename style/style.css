@@ -183,7 +183,7 @@ body {
 }
 
 .five p {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   position: absolute;
   left: 0;
   right: 0;
@@ -242,7 +242,7 @@ body {
 }
 
 .lyrics {
-  font-family: 'Tangerine', cursive;
+  font-family: 'Great Vibes', cursive;
   font-style: italic;
   letter-spacing: 0.2px;
 }
