@@ -100,16 +100,16 @@ const applyLanguage = (lang) => {
   if (byId("idea4")) byId("idea4").textContent = data.idea4;
   if (byId("idea5")) byId("idea5").innerHTML = data.idea5HTML;
   if (byId("idea6")) byId("idea6").innerHTML = `<span>${data.idea6a}</span><span>${data.idea6b}</span>`;
-  if (byId("wishHeading")) byId("wishHeading").textContent = data.wishHeading;
-  if (byId("wishText")) byId("wishText").textContent = data.wishText;
-  if (byId("galleryTitle")) byId("galleryTitle").textContent = data.galleryTitle;
-  if (byId("closingLine")) byId("closingLine").textContent = data.closingLine;
-  if (byId("replay")) byId("replay").textContent = data.replay;
-  if (byId("surpriseText")) byId("surpriseText").textContent = data.surpriseText;
+  if (byId("wishHeading")) byId("wishHeading").textContent = baseText.wishHeading;
+  if (byId("wishText")) byId("wishText").textContent = baseText.wishText;
+  if (byId("galleryTitle")) byId("galleryTitle").textContent = baseText.galleryTitle;
+  if (byId("closingLine")) byId("closingLine").textContent = baseText.closingLine;
+  if (byId("replay")) byId("replay").textContent = baseText.replay;
+  if (byId("surpriseText")) byId("surpriseText").textContent = baseText.surpriseText;
   if (byId("startTitle")) byId("startTitle").textContent = data.startTitle;
   if (byId("startSubtitle")) byId("startSubtitle").textContent = data.startSubtitle;
   if (byId("startBtn")) byId("startBtn").textContent = data.startBtn;
-  if (byId("endingCard")) byId("endingCard").textContent = data.endingCard;
+  if (byId("endingCard")) byId("endingCard").textContent = baseText.endingCard;
 
   const langToggle = byId("langToggle");
   if (langToggle) langToggle.textContent = isBn ? "English" : "বাংলা";
