@@ -103,7 +103,7 @@ const applyLanguage = (lang) => {
   if (byId("idea5")) byId("idea5").innerHTML = data.idea5HTML;
   if (byId("idea6")) byId("idea6").innerHTML = `<span>${data.idea6a}</span><span>${data.idea6b}</span>`;
   if (byId("wishHeading")) byId("wishHeading").textContent = baseText.wishHeading;
-  if (byId("wishText")) byId("wishText").textContent = baseText.wishText;
+  if (byId("wishText")) byId("wishText").textContent = data.wishText;
   if (byId("galleryTitle")) byId("galleryTitle").textContent = data.galleryTitle;
   if (byId("closingLine")) byId("closingLine").textContent = data.closingLine;
   if (byId("replay")) byId("replay").textContent = data.replay;
