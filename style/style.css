@@ -56,25 +56,6 @@
   0% { opacity: 0.5; transform: scale(1) rotate(-10deg); }
   100% { opacity: 0.9; transform: scale(1.1) rotate(10deg); }
 }
-/* Language Switcher Button */
-.lang-switch {
-  background: linear-gradient(90deg, #ffb6c1 0%, #ff4d6d 100%);
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 999px;
-  box-shadow: 0 2px 12px rgba(255,77,109,0.12);
-  cursor: pointer;
-  padding: 8px 18px;
-  transition: transform 0.18s, box-shadow 0.18s;
-  outline: none;
-}
-.lang-switch:hover {
-  transform: scale(1.07);
-  box-shadow: 0 6px 20px rgba(255,77,109,0.22);
-  background: linear-gradient(90deg, #ff4d6d 0%, #ffb6c1 100%);
-}
 /* Love Meter Styles */
 .love-meter-section {
   margin-bottom: 18px;
@@ -117,8 +98,8 @@
   flex-wrap: wrap;
 }
 .gallery-img {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(255,77,109,0.12);
@@ -181,7 +162,7 @@
   animation: popIn 0.5s;
 }
 .note-emoji {
-  font-size: 2.8rem;
+  font-size: 1.3rem;
   margin-bottom: 12px;
 }
 .close-note {
@@ -262,7 +243,7 @@
   animation: popIn 0.5s;
 }
 .hug-emoji {
-  font-size: 2.8rem;
+  font-size: 1.3rem;
   margin-bottom: 12px;
 }
 .close-hug {
@@ -314,10 +295,10 @@ body {
   overflow-y: auto;
   position: relative;
   padding: 24px 0 48px;
-  font-family: 'Poppins', 'Noto Serif Bengali', serif, sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M16 29s-13-8.35-13-17A7 7 0 0 1 16 5a7 7 0 0 1 13 7c0 8.65-13 17-13 17z" fill="%23ff4d6d"/></svg>') 16 29, auto;
 }
-/* Subtle Bengali motif overlay */
+/* Subtle motif overlay */
 
 
 body::before {
@@ -332,13 +313,13 @@ body::before {
 }
 
 .container {
-  width: min(94vw, 900px);
+  width: min(92vw, 880px);
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 32px;
   border: 1.5px solid var(--glass-border);
-  padding: 40px 32px;
+  padding: 36px 28px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.18);
   animation: floatIn 1.2s ease forwards;
   margin: 32px auto;
@@ -448,7 +429,7 @@ p {
   overflow: hidden;
 }
 .fake-btn::before {
-  content: '💌';
+  content: '';
   position: absolute;
   left: 18px;
   top: 50%;
@@ -468,28 +449,6 @@ p {
   font-family: 'Pacifico', cursive, 'Poppins', sans-serif;
   text-shadow: 0 2px 12px #ffb6c1a0;
   letter-spacing: 1px;
-}
-.baloons-wrapper img, .baloons-wrapper svg {
-  filter: drop-shadow(0 0 8px #ffb6c1a0);
-  transition: transform 0.2s, filter 0.2s;
-}
-.baloons-wrapper img:hover, .baloons-wrapper svg:hover {
-  transform: scale(1.15) rotate(-8deg);
-  filter: drop-shadow(0 0 16px #ff4d6d);
-}
-.modern-circles svg {
-  width: 32px;
-  height: 32px;
-  fill: #ffb6c1;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 8px #ffb6c1a0);
-  transition: transform 0.2s, fill 0.2s, filter 0.2s;
-}
-.modern-circles svg:hover {
-  transform: scale(1.2) rotate(-8deg);
-  fill: #ff4d6d;
-  opacity: 1;
-  filter: drop-shadow(0 0 18px #ff4d6d);
 }
 @keyframes heartBeat {
   0%, 100% { transform: scale(1); }
@@ -550,31 +509,6 @@ p {
   color: #444;
   font-size: 1.1rem;
 }
-.baloons-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-.modern-circles {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-.modern-circles svg {
-  width: 32px;
-  height: 32px;
-  fill: #ffb199;
-  opacity: 0.7;
-  transition: transform 0.2s;
-}
-.modern-circles svg:hover {
-  transform: scale(1.2) rotate(-8deg);
-  fill: #ff4d6d;
-  opacity: 1;
-}
 .feedback {
   text-align: center;
   margin-top: 32px;
@@ -591,7 +525,7 @@ strong {
 
 @media (max-width: 700px) {
   .container {
-    padding: 18px 4px;
+    padding: 20px 16px;
   }
   .hero {
     flex-direction: column;
@@ -601,5 +535,9 @@ strong {
   .girl-dp {
     width: 90px;
     height: 90px;
+  }
+  .gallery-img {
+    width: 78px;
+    height: 78px;
   }
 }

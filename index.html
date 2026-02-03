@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Happy Valentine's Day Love :)</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap" />
     <link rel="shortcut icon" type="image/png" href="./img/heart.svg" />
     <link rel="stylesheet" href="style/style.css" />
   </head>
-
   <body>
     <!-- Animated SVG Hearts Background -->
     <div class="svg-hearts-bg">
@@ -19,7 +17,6 @@
       <svg class="svg-arrow" viewBox="0 0 60 20" width="60" height="20"><path d="M2 10h56M56 10l-8-8M56 10l-8 8" stroke="#ff4d6d" stroke-width="2" fill="none"/></svg>
     </div>
     <audio id="bgMusic" src="song1.mp3" loop preload="auto" style="display:none;"></audio>
-    <button id="langSwitch" class="lang-switch" style="position:fixed;top:18px;right:18px;z-index:10001;">🌐 বাংলা</button>
     <main class="container">
       <section class="countdown-section" style="text-align:center; margin-bottom:18px;">
         <div id="valCountdown" class="val-countdown" style="font-size:1.3rem; color:#ff4d6d; font-weight:700;"></div>
@@ -37,7 +34,7 @@
       </section>
       <section class="valentine-msg">
         <div class="three">
-          <p id="valMsg">Happy Valentine’s Day, my love! <span aria-label="heart" role="img">💖</span></p>
+          <p id="valMsg">Happy Valentine's Day, my love!</p>
         </div>
         <div class="four">
           <div class="text-box">
@@ -49,18 +46,18 @@
         </div>
       </section>
       <section class="ideas">
-        <p class="idea-1" id="idea1">I thought a simple wish would do…</p>
+        <p class="idea-1" id="idea1">I thought a simple wish would do...</p>
         <p class="idea-2" id="idea2">But my heart wanted more.</p>
         <p class="idea-3" id="idea3">Because you deserve something <strong>truly special</strong>.</p>
-        <p class="idea-4" id="idea4">Because…</p>
-        <p class="idea-5" id="idea5">You are my everything! <span aria-label="love" role="img">💘</span></p>
-        <p class="idea-6" id="idea6"><span>So…</span></p>
+        <p class="idea-4" id="idea4">Because...</p>
+        <p class="idea-5" id="idea5">You are my everything!</p>
+        <p class="idea-6" id="idea6"><span>So...</span></p>
       </section>
       <section class="music-section" style="text-align:center; margin-bottom:18px;">
-        <button id="musicToggle" class="music-btn" aria-label="Play/Pause Music">🎵 Play Music</button>
+        <button id="musicToggle" class="music-btn" aria-label="Play/Pause Music">Play Music</button>
       </section>
       <section class="note-section" style="text-align:center; margin-bottom:18px;">
-        <button id="noteBtn" class="note-btn" aria-label="Open Love Note">💌 Open Love Note</button>
+        <button id="noteBtn" class="note-btn" aria-label="Open Love Note">Open Love Note</button>
       </section>
       <section class="gallery-section" style="text-align:center; margin-bottom:18px;">
         <h3 style="color:#ff4d6d; font-size:1.3rem; margin-bottom:10px;">Our Memories</h3>
@@ -73,12 +70,12 @@
       </section>
       <section class="quote-section" style="text-align:center; margin-bottom:18px;">
         <h3 style="color:#ff4d6d; font-size:1.2rem; margin-bottom:10px;">Favorite Quote</h3>
-        <blockquote id="favQuote" style="font-size:1.1rem; color:#444; font-style:italic; margin:0 auto 8px auto; max-width:420px;">“Love is composed of a single soul inhabiting two bodies.” – Aristotle</blockquote>
+        <blockquote id="favQuote" style="font-size:1.1rem; color:#444; font-style:italic; margin:0 auto 8px auto; max-width:420px;">"Love is composed of a single soul inhabiting two bodies." - Aristotle</blockquote>
         <h3 style="color:#ff4d6d; font-size:1.2rem; margin-bottom:10px;">Favorite Poem</h3>
-        <blockquote id="favPoem" style="font-size:1.1rem; color:#444; font-style:italic; margin:0 auto 8px auto; max-width:420px;">“তুমি আমার ভালোবাসা, তুমি আমার স্বপ্ন,<br>তুমি আমার জীবনের রঙ।”</blockquote>
+        <blockquote id="favPoem" style="font-size:1.1rem; color:#444; font-style:italic; margin:0 auto 8px auto; max-width:420px;">"I carry your heart with me (I carry it in my heart)." - E. E. Cummings</blockquote>
       </section>
       <section class="surprise-section" style="text-align:center; margin-bottom:18px;">
-        <button id="surpriseBtn" class="surprise-btn" aria-label="Surprise Me">🎁 Surprise Me!</button>
+        <button id="surpriseBtn" class="surprise-btn" aria-label="Surprise Me">Surprise Me!</button>
         <div id="surpriseMsg" class="surprise-msg" style="margin-top:10px; font-size:1.1rem; color:#ff4d6d; min-height:32px;"></div>
       </section>
       <section class="love-meter-section" style="text-align:center; margin-bottom:18px;">
@@ -95,49 +92,27 @@
               <div id="noteModal" class="note-modal" style="display:none;">
                 <div class="note-modal-content">
                   <span class="close-note">&times;</span>
-                  <div class="note-emoji">💌</div>
+                  <div class="note-emoji">Love Note</div>
                   <h2>My Love Note for You</h2>
                   <p>Every day with you feels like a beautiful dream come true. Thank you for being my Valentine, today and always!</p>
                 </div>
               </div>
         <div class="wish">
-          <h3 class="wish-hbd" id="wishHeading">Happy Valentine’s Day, Beautiful!</h3>
+          <h3 class="wish-hbd" id="wishHeading">Happy Valentine's Day, Beautiful!</h3>
           <h5 id="wishText">Aankhon me teri Ajab si Ajab si aadae hai, Dil ko bna de malang ye teri wo hawayeinn hai</h5>
-          <button id="hugBtn" class="hug-btn">🤗 Send a Virtual Hug</button>
+          <button id="hugBtn" class="hug-btn">Send a Virtual Hug</button>
         </div>
       </section>
       <!-- Hug Popup Modal -->
       <div id="hugModal" class="hug-modal" style="display:none;">
         <div class="hug-modal-content">
           <span class="close-hug">&times;</span>
-          <div class="hug-emoji">🤗💖</div>
+          <div class="hug-emoji">A Big Hug</div>
           <h2>Here's a big virtual hug!</h2>
           <p>May your day be filled with love, warmth, and endless smiles. Happy Valentine's Day!</p>
         </div>
       </div>
-      <section class="baloons seven">
-        <div class="baloons-wrapper">
-          <img src="img/balloon.svg" alt="Balloon" />
-
-            <img src="img/smiling.svg" alt="Smiling" />
-            <img src="img/heart.svg" alt="Heart" />
-            <img src="img/balloon.svg" alt="Balloon" />
-            <img src="img/heart.svg" alt="Heart" />
-            <img src="img/music-note.svg" alt="Music Note" />
-            <img src="img/heart.svg" alt="Heart" />
-            <img src="img/balloon.svg" alt="Balloon" />
-            <img src="img/smiling.svg" alt="Smiling" />
-            <img src="img/happy.svg" alt="Happy" />
-          </div>
-        </section>
-        <section class="eight modern-circles">
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" /></svg>
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" /></svg>
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" /></svg>
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" /></svg>
-          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" /></svg>
-        </section>
-        <section class="nine feedback">
+<section class="nine feedback">
           <p>I hope this made you smile, my love.</p>
           <p id="replay">Or click, if you want to watch it again.</p>
           <p class="last-smile">:)</p>
@@ -145,11 +120,7 @@
         <footer class="signature" style="text-align:center; margin:32px 0 12px 0; color:#ff4d6d; font-size:1.1rem; font-family:'Pacifico',cursive;">
           With love, <span style="font-weight:bold;">Sagar aka Dudu</span>
         </footer>
-      <!-- Heart Confetti Canvas -->
-      <canvas id="heartConfetti" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;"></canvas>
-    </main>
-    <script src="script/confetti.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script src="script/main.js"></script>
+</main>
+<script src="script/main.js"></script>
   </body>
 </html>
