@@ -136,14 +136,14 @@ body {
 
 .memories {
   display: flex;
-  gap: 14px;
+  gap: 18px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .memories img {
-  width: 90px;
-  height: 90px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   border-radius: 14px;
   border: 2px solid #fff;
