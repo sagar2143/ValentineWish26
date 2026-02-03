@@ -1,5 +1,19 @@
 ﻿// Animation Timeline (reference-style)
 let activeTimeline = null;
+let currentLang = "en";
+
+const splitForAnimation = (text, lang) => {
+  if (!text) return "";
+  if (lang === "bn") {
+    // Split by words to avoid breaking Bengali grapheme clusters
+    return text
+      .split(" ")
+      .map((word) => (word ? `<span>${word}</span>` : ""))
+      .join(" ");
+  }
+  // Default: split by characters
+  return text.split("").map((ch) => `<span>${ch}</span>`).join("");
+};
 const animationTimeline = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
@@ -35,17 +49,17 @@ const animationTimeline = () => {
     ],
     { clearProps: "all" }
   );
+  TweenMax.set(".eight svg", { visibility: "hidden", opacity: 0, scale: 1 });
+  TweenMax.set(".baloons img", { opacity: 1, y: 0 });
+  TweenMax.set(".six", { opacity: 1, y: 0, zIndex: 1 });
+  TweenMax.set(".four", { opacity: 1, scale: 1, y: 0 });
+  TweenMax.set(".fake-btn", { opacity: 1, scale: 1 });
 
   const textBoxText = textBoxChars.textContent;
   const hbdText = hbd.textContent;
 
-  textBoxChars.innerHTML = `<span>${textBoxText
-    .split("")
-    .join("</span><span>")}</span>`;
-
-  hbd.innerHTML = `<span>${hbdText
-    .split("")
-    .join("</span><span>")}</span>`;
+  textBoxChars.innerHTML = splitForAnimation(textBoxText, currentLang);
+  hbd.innerHTML = splitForAnimation(hbdText, currentLang);
 
   const ideaTextTrans = { opacity: 0, y: -20, rotationX: 5, skewX: "15deg" };
   const ideaTextTransLeave = { opacity: 0, y: 20, rotationY: 5, skewX: "-15deg" };
@@ -154,6 +168,7 @@ const setupLanguage = () => {
   langBtn.addEventListener("click", () => {
     isBengali = !isBengali;
     const lang = isBengali ? "bn" : "en";
+    currentLang = lang;
     langBtn.textContent = isBengali ? "🌐 English" : "🌐 বাংলা";
     safeSet("mainHeading", lines[lang].mainHeading);
     safeSet("valMsg", lines[lang].valMsg);
