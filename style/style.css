@@ -78,7 +78,7 @@ body {
 
 .one {
   font-size: 3.6rem;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', 'Noto Serif Bengali', cursive, sans-serif;
   color: #ff4d6d;
 }
 

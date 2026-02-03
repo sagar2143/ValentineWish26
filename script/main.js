@@ -1,15 +1,49 @@
 ﻿// Animation Timeline (reference-style)
+let activeTimeline = null;
 const animationTimeline = () => {
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
   if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") return;
 
-  textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+  // Kill previous timeline (language switch restarts)
+  if (activeTimeline) {
+    activeTimeline.kill();
+    activeTimeline = null;
+  }
+
+  // Reset inline styles from prior animation
+  TweenMax.set(
+    [
+      ".one",
+      ".two",
+      ".three",
+      ".four",
+      ".five",
+      ".six",
+      ".seven",
+      ".eight",
+      ".nine",
+      ".idea-1",
+      ".idea-2",
+      ".idea-3",
+      ".idea-4",
+      ".idea-5",
+      ".idea-6",
+      ".wish-hbd",
+      ".wish h5",
+    ],
+    { clearProps: "all" }
+  );
+
+  const textBoxText = textBoxChars.textContent;
+  const hbdText = hbd.textContent;
+
+  textBoxChars.innerHTML = `<span>${textBoxText
     .split("")
     .join("</span><span>")}</span>`;
 
-  hbd.innerHTML = `<span>${hbd.innerHTML
+  hbd.innerHTML = `<span>${hbdText
     .split("")
     .join("</span><span>")}</span>`;
 
@@ -17,6 +51,7 @@ const animationTimeline = () => {
   const ideaTextTransLeave = { opacity: 0, y: 20, rotationY: 5, skewX: "-15deg" };
 
   const tl = new TimelineMax();
+  activeTimeline = tl;
 
   tl.to(".container", 0.1, { visibility: "visible" })
     .from(".one", 0.7, { opacity: 0, y: 10 })
