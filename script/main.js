@@ -247,12 +247,37 @@ const animationTimeline = () => {
     .from("#surpriseText", 0.8, { opacity: 0, y: 10 }, "+=0.2")
     .to(".last-smile", 0.5, { rotation: 90 }, "+=0.3")
     .to("#endingScreen", 0.6, { opacity: 1 }, "+=0.2")
-    .to("#endingScreen", 0.8, { opacity: 0 }, "+=2");
+    .to("#endingScreen", 0.6, { opacity: 0 }, "+=1.2")
+    .call(() => {
+      const videoWrap = document.getElementById("endingVideo");
+      const video = document.getElementById("endingVideoEl");
+      if (videoWrap) {
+        videoWrap.style.opacity = "1";
+        videoWrap.style.pointerEvents = "auto";
+      }
+      if (video) {
+        video.currentTime = 0;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      }
+    }, null, null, "+=0.2");
 
   const replyBtn = document.getElementById("replay");
   if (replyBtn) {
     replyBtn.addEventListener("click", () => {
       tl.restart();
+      const videoWrap = document.getElementById("endingVideo");
+      const video = document.getElementById("endingVideoEl");
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
+      if (videoWrap) {
+        videoWrap.style.opacity = "0";
+        videoWrap.style.pointerEvents = "none";
+      }
       const music = document.getElementById("bgMusic");
       if (music) {
         setMusicForLang(currentLang, false);
@@ -324,6 +349,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("startOverlay");
   const startBtn = document.getElementById("startBtn");
   const heartCanvas = document.getElementById("heartBurst");
+  const endingVideo = document.getElementById("endingVideoEl");
+  const endingVideoWrap = document.getElementById("endingVideo");
   if (!music || !toggle || !overlay || !startBtn) return;
 
   const setLabel = () => {
@@ -390,6 +417,14 @@ document.addEventListener("DOMContentLoaded", () => {
     music.currentTime = 0;
     setLabel();
   });
+
+  if (endingVideo && endingVideoWrap) {
+    endingVideo.addEventListener("ended", () => {
+      endingVideoWrap.style.opacity = "0";
+      endingVideoWrap.style.pointerEvents = "none";
+      endingVideo.currentTime = 0;
+    });
+  }
 
   setLabel();
 });

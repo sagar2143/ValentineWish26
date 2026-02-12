@@ -699,6 +699,24 @@ body::before {
   pointer-events: none;
   z-index: 15000;
 }
+
+.ending-video {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ending-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .ending-card {
   font-family: 'Great Vibes', cursive;
   font-size: 2.6rem;
