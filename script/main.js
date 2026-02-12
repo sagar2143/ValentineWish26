@@ -251,9 +251,13 @@ const animationTimeline = () => {
     .call(() => {
       const videoWrap = document.getElementById("endingVideo");
       const video = document.getElementById("endingVideoEl");
+      const music = document.getElementById("bgMusic");
       if (videoWrap) {
         videoWrap.style.opacity = "1";
         videoWrap.style.pointerEvents = "auto";
+      }
+      if (music && !music.paused) {
+        music.pause();
       }
       if (video) {
         video.currentTime = 0;
